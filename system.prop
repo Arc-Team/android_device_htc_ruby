@@ -1,0 +1,94 @@
+# Edit By: JoseGalRe
+dalvik.vm.checkjni=false
+debug.egl.profiler=1
+debug.performance.tuning=1
+persist.service.adb.enable=1
+persist.sys.strictmode.visual=0 
+persist.sys.ui.hw=1
+persist.sys.use_dithering=0
+pm.sleep_mode=1
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+ro.com.google.networklocation=1
+ro.config.hw_fast_dormancy=1
+ro.config.hw_power_saving=1
+ro.config.hw_quickpoweron=true
+ro.config.nocheckin=1
+ro.config.vc_call_vol_steps=20
+ro.kernel.android.checkjni=0
+ro.kernel.checkjni=0
+ro.lge.proximity.delay=25
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+ro.mot.eri.losalert.delay=1000
+ro.ril.disable.power.collapse=1
+ro.sf.lcd_density=240
+video.accelerate.hw=1
+windowsmgr.max_events_per_sec=120
+
+# RIL properties
+mobiledata.interfaces=rmnet_sdio0
+rild.libpath=/system/lib/libril-qc-qmi-1.so
+rild.libargs=-d /dev/smd0
+ro.telephony.default_network=0
+ro.vendor.extension_library=/system/lib/libqc-opt.so
+ro.telephony.ril.v3=signalstrengthgsm
+DEVICE_PROVISIONED=1
+
+# Wifi
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=255
+
+# UMS and Quick boot mode
+persist.fuse_sdcard=true
+persist.sys.purgeable_assets=1
+persist.sys.root_access=3
+persist.sys.usb.config=mass_storage,adb
+persist.sys.use_16bpp_alpha=1
+ro.vold.umsdirtyratio=40
+
+# Media Tweaks
+media.stagefright.enable-http=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-player=true
+media.stagefright.enable-record=false
+media.stagefright.enable-rtsp=true
+media.stagefright.enable-scan=true
+ro.camcorder.videoModes=true
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.hprof.vid.bps=8000000
+ro.media.enc.hprof.vid.fps=65
+ro.media.enc.jpeg.quality=100
+ro.media.panorama.defres=3264x1840
+ro.media.panorama.frameres=1280x720
+
+# WIFI and 3G Tweaks
+net.dns1=8.8.8.8
+net.dns2=8.8.4.4
+net.ppp0.dns1=8.8.8.8
+net.ppp0.dns2=8.8.4.4
+net.tcp.buffersize.default=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.edge=6144,87380,524288,6144,16384,262144
+net.tcp.buffersize.gprs=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.hsdpa=6144,87380,1048576,6144,87380,1048576
+net.tcp.buffersize.hspa=6144,87380,524288,6144,16384,262144
+net.tcp.buffersize.umts=6144,87380,1048576,6144,87380,524288
+net.tcp.buffersize.wifi=524288,1048576,2097152,524288,1048576,2097152
+
+# Telephony Tuning
+ro.ril.enable.dtm=1
+ro.ril.enable.amr.wideband=1
+ro.ril.hsxpa=5
+ro.ril.gprsclass=12
+ro.ril.egprsclass=12
+ro.ril.hsdpa.category=24
+ro.ril.hsupa.category=7
+ro.ril.fast.dormancy.rule=1
+
+# Hardware Info
+ro.device.chipset=Qualcomm MSM8660 Snapdragon S3
+ro.device.cpu=ARMv7 Dual-Core 1.5 GHz Scorpion
+ro.device.gpu=Adreno 220
+ro.device.rear_cam=8 MP (3264x2448)
+ro.device.front_cam=2 MP (1600x1200)
+ro.device.screen_res=4.3" 960x540 pixels (~256 ppi)

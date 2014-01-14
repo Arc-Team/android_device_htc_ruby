@@ -1,0 +1,331 @@
+# Inherit
+$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+
+DEVICE_PACKAGE_OVERLAYS += device/htc/ruby/overlay
+
+# Qualcomm scripts
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
+    device/htc/ruby/proprietary/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
+    frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.touchscreen.multitouch.distinct.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.distinct.xml \
+    frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
+    frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
+    packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:system/etc/permissions/android.software.live_wallpaper.xml
+
+# Audio
+PRODUCT_PACKAGES += \
+    audio.a2dp.default \
+    audio_policy.msm8660 \
+    audio.primary.msm8660 \
+    audio.usb.default \
+    libaudio-resampler \
+    audio_policy.conf \
+    libaudioutils
+
+# GPS
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/etc/gps.conf:system/etc/gps.conf
+
+# Graphics
+PRODUCT_PACKAGES += \
+    copybit.msm8660 \
+    gralloc.msm8660 \
+    hwcomposer.msm8660 \
+    lights.msm8660 \
+    libgenlock \
+    libmemalloc \
+    liboverlay \
+    libqdutils \
+    libtilerenderer
+
+# OMX
+PRODUCT_PACKAGES += \
+    libc2dcolorconvert \
+    libdivxdrmdecrypt \
+    libmm-omxcore \
+    libOmxCore \
+    libOmxVdec \
+    libOmxVenc \
+    libOmxAacEnc \
+    libOmxAmrEnc \
+    libstagefrighthw \
+    libOmxQcelp13Enc \
+    libOmxEvrcEnc \
+    libOmxAmrEnc
+
+PRODUCT_PACKAGES += \
+    libnetcmdiface \
+    libsurfaceflinger_client
+
+# Torch
+PRODUCT_PACKAGES += \
+    Torch
+
+# USB
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory
+
+# Filesystem
+PRODUCT_PACKAGES += \
+    make_ext4fs \
+    setup_fs
+
+# Media configuration
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/etc/media_codecs.xml:system/etc/media_codecs.xml \
+    device/htc/ruby/proprietary/etc/media_profiles.xml:system/etc/media_profiles.xml
+
+# Device uses high-density artwork where available
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
+
+# Common build properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
+    debug.enabletr=true \
+    debug.egl.hw=1 \
+    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.hw=1 \
+    dev.pm.dyn_samplingrate=1 \
+    ro.opengles.version=131072 \
+    ro.bq.gpu_to_cpu_unsupported=1
+
+# Camera wrapper
+PRODUCT_PACKAGES += \
+    camera.msm8660
+
+# Ramdisk files
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/ramdisk/fstab.ruby:root/fstab.ruby \
+    device/htc/ruby/ramdisk/init.qcom.sh:root/init.qcom.sh \
+    device/htc/ruby/ramdisk/init.ruby.rc:root/init.ruby.rc \
+    device/htc/ruby/ramdisk/init.ruby.usb.rc:root/init.ruby.usb.rc \
+    device/htc/ruby/ramdisk/ueventd.ruby.rc:root/ueventd.ruby.rc
+
+# GPS
+PRODUCT_PACKAGES += \
+    gps.ruby
+
+# NFC
+PRODUCT_PACKAGES += \
+    libnfc \
+    libnfc_jni \
+    Nfc \
+    Tag \
+    com.android.nfc_extras
+
+# Wifi
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd.conf \
+    wpa_supplicant.conf \
+    tiwlan.ini \
+    TQS_D_1.7.ini \
+    TQS_D_1.7_127x.ini \
+    calibrator
+
+# NETcmdiface
+PRODUCT_PACKAGES += \
+    libnetcmdiface
+
+# Recovery
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/recovery/root/sbin/choice_fn:recovery/root/sbin/choice_fn \
+    device/htc/ruby/recovery/root/sbin/detect_key:recovery/root/sbin/detect_key \
+    device/htc/ruby/recovery/root/sbin/htcbatt:recovery/root/sbin/htcbatt \
+    device/htc/ruby/recovery/root/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
+    device/htc/ruby/recovery/root/sbin/power_test:recovery/root/sbin/power_test
+
+# Keylayouts and Keychars
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/usr/keychars/ruby-keypad.kcm:system/usr/keychars/ruby-keypad.kcm \
+    device/htc/ruby/proprietary/usr/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
+    device/htc/ruby/proprietary/usr/keylayout/atmel-touchscreen.kl:system/usr/keylayout/atmel-touchscreen.kl \
+    device/htc/ruby/proprietary/usr/keylayout/h2w_headset.kl:system/usr/keylayout/h2w_headset.kl \
+    device/htc/ruby/proprietary/usr/keylayout/ruby-keypad.kl:system/usr/keylayout/ruby-keypad.kl
+
+# Input device config
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
+    device/htc/ruby/proprietary/usr/idc/ruby-keypad.idc:system/usr/idc/ruby-keypad.idc
+
+# Sound configs
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/etc/AIC3254_REG_DualMic.csv:system/etc/AIC3254_REG_DualMic.csv \
+    device/htc/ruby/proprietary/etc/AIC3254_REG_DualMic_XD.csv:system/etc/AIC3254_REG_DualMic_XD.csv \
+    device/htc/ruby/proprietary/etc/AdieHWCodec.csv:system/etc/AdieHWCodec.csv \
+    device/htc/ruby/proprietary/etc/AudioBTID.csv:system/etc/AudioBTID.csv \
+    device/htc/ruby/proprietary/etc/CodecDSPID.txt:system/etc/CodecDSPID.txt \
+    device/htc/ruby/proprietary/etc/TPA2051_CFG.csv:system/etc/TPA2051_CFG.csv \
+    device/htc/ruby/proprietary/etc/TPA2051_CFG_XB.csv:system/etc/TPA2051_CFG_XB.csv \
+    device/htc/ruby/proprietary/etc/TPA2051_CFG_XC.csv:system/etc/TPA2051_CFG_XC.csv \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_MFG.txt:system/etc/soundimage/Sound_MFG.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Original.txt:system/etc/soundimage/Sound_Original.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Original_Recording.txt:system/etc/soundimage/Sound_Original_Recording.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Original_SPK.txt:system/etc/soundimage/Sound_Original_SPK.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Phone_Original_HP.txt:system/etc/soundimage/Sound_Phone_Original_HP.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Phone_Original_REC.txt:system/etc/soundimage/Sound_Phone_Original_REC.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Phone_Original_SPK.txt:system/etc/soundimage/Sound_Phone_Original_SPK.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Rec_Landscape.txt:system/etc/soundimage/Sound_Rec_Landscape.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Rec_Portrait.txt:system/etc/soundimage/Sound_Rec_Portrait.txt \
+    device/htc/ruby/proprietary/etc/soundimage/Sound_Recording.txt:system/etc/soundimage/Sound_Recording.txt \
+    device/htc/ruby/proprietary/etc/soundimage/srs_geq10.cfg:system/etc/soundimage/srs_geq10.cfg \
+    device/htc/ruby/proprietary/etc/soundimage/srsfx_trumedia_51.cfg:system/etc/soundimage/srsfx_trumedia_51.cfg \
+    device/htc/ruby/proprietary/etc/soundimage/srsfx_trumedia_movie.cfg:system/etc/soundimage/srsfx_trumedia_movie.cfg \
+    device/htc/ruby/proprietary/etc/soundimage/srsfx_trumedia_music.cfg:system/etc/soundimage/srsfx_trumedia_music.cfg \
+    device/htc/ruby/proprietary/etc/soundimage/srsfx_trumedia_voice.cfg:system/etc/soundimage/srsfx_trumedia_voice.cfg
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml
+
+# Prebuilt libraries that are needed to build open-source libraries
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/lib/hw/vendor-camera.msm8660.so:obj/lib/vendor-camera.msm8660.so \
+    device/htc/ruby/proprietary/lib/libacdbloader.so:obj/lib/libacdbloader.so \
+    device/htc/ruby/proprietary/lib/libacdbmapper.so:obj/lib/libacdbmapper.so \
+    device/htc/ruby/proprietary/lib/libaudioalsa.so:obj/lib/libaudioalsa.so
+
+# Vendor
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/proprietary/bin/akmd:system/bin/akmd \
+    device/htc/ruby/proprietary/bin/awb_camera:system/bin/awb_camera \
+    device/htc/ruby/proprietary/bin/calibrator:system/bin/calibrator \
+    device/htc/ruby/proprietary/bin/charging:system/bin/charging \
+    device/htc/ruby/proprietary/bin/ewtzmud:system/bin/ewtzmud \
+    device/htc/ruby/proprietary/bin/htcbatt:system/bin/htcbatt \
+    device/htc/ruby/proprietary/bin/ipd:system/bin/ipd \
+    device/htc/ruby/proprietary/bin/ks:system/bin/ks \
+    device/htc/ruby/proprietary/bin/lsc_camera:system/bin/lsc_camera \
+    device/htc/ruby/proprietary/bin/mpdecision:system/bin/mpdecision \
+    device/htc/ruby/proprietary/bin/netmgrd:system/bin/netmgrd \
+    device/htc/ruby/proprietary/bin/netsharing:system/bin/netsharing \
+    device/htc/ruby/proprietary/bin/port-bridge:system/bin/port-bridge \
+    device/htc/ruby/proprietary/bin/qcks:system/bin/qcks \
+    device/htc/ruby/proprietary/bin/qmiproxy:system/bin/qmiproxy \
+    device/htc/ruby/proprietary/bin/qmuxd:system/bin/qmuxd \
+    device/htc/ruby/proprietary/bin/rmt_storage:system/bin/rmt_storage \
+    device/htc/ruby/proprietary/bin/thermald:system/bin/thermald \
+    device/htc/ruby/proprietary/bin/uimqc:system/bin/uimqc \
+    device/htc/ruby/proprietary/bin/zchgd:system/bin/zchgd \
+    device/htc/ruby/proprietary/etc/agps_rm:system/etc/agps_rm \
+    device/htc/ruby/proprietary/etc/firmware/TIInit_7.6.15.bts:system/etc/firmware/TIInit_7.6.15.bts \
+    device/htc/ruby/proprietary/etc/firmware/WL127x_2.0_2.25.bts:system/etc/firmware/WL127x_2.0_2.25.bts \
+    device/htc/ruby/proprietary/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
+    device/htc/ruby/proprietary/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
+    device/htc/ruby/proprietary/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
+    device/htc/ruby/proprietary/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
+    device/htc/ruby/proprietary/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
+    device/htc/ruby/proprietary/etc/firmware/firmware.bin:system/etc/wifi/firmware.bin \
+    device/htc/ruby/proprietary/etc/firmware/firmware_ap.bin:system/etc/wifi/firmware_ap.bin \
+    device/htc/ruby/proprietary/etc/firmware/fm_rx_init_1273.2.bts:system/etc/firmware/fm_rx_init_1273.2.bts \
+    device/htc/ruby/proprietary/etc/firmware/fmc_init_1273.2.bts:system/etc/firmware/fmc_init_1273.2.bts \
+    device/htc/ruby/proprietary/etc/firmware/htc_1271fw.bin:system/etc/firmware/htc_1271fw.bin \
+    device/htc/ruby/proprietary/etc/firmware/htc_1271fw_196_header.bin:system/etc/firmware/htc_1271fw_196_header.bin \
+    device/htc/ruby/proprietary/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
+    device/htc/ruby/proprietary/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
+    device/htc/ruby/proprietary/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
+    device/htc/ruby/proprietary/etc/firmware/ti-connectivity/wl1271-nvs.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
+    device/htc/ruby/proprietary/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-mr.bin \
+    device/htc/ruby/proprietary/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-plt.bin \
+    device/htc/ruby/proprietary/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
+    device/htc/ruby/proprietary/etc/firmware/vac_config.ini:system/etc/firmware/vac_config.ini \
+    device/htc/ruby/proprietary/etc/firmware/version:system/etc/firmware/version \
+    device/htc/ruby/proprietary/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
+    device/htc/ruby/proprietary/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw \
+    device/htc/ruby/proprietary/etc/vpimg:system/etc/vpimg \
+    device/htc/ruby/proprietary/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+    device/htc/ruby/proprietary/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    device/htc/ruby/proprietary/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    device/htc/ruby/proprietary/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    device/htc/ruby/proprietary/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    device/htc/ruby/proprietary/lib/hw/nfc.ruby.so:system/lib/hw/nfc.ruby.so \
+    device/htc/ruby/proprietary/lib/hw/sensors.ruby.so:system/lib/hw/sensors.ruby.so \
+    device/htc/ruby/proprietary/lib/hw/vendor-camera.msm8660.so:system/lib/hw/vendor-camera.msm8660.so \
+    device/htc/ruby/proprietary/lib/libC2D2.so:system/lib/libC2D2.so \
+    device/htc/ruby/proprietary/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
+    device/htc/ruby/proprietary/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    device/htc/ruby/proprietary/lib/libacdbloader.so:system/lib/libacdbloader.so \
+    device/htc/ruby/proprietary/lib/libacdbmapper.so:system/lib/libacdbmapper.so \
+    device/htc/ruby/proprietary/lib/libaudcal.so:system/lib/libaudcal.so \
+    device/htc/ruby/proprietary/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
+    device/htc/ruby/proprietary/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
+    device/htc/ruby/proprietary/lib/libcameraface.so:system/lib/libcameraface.so \
+    device/htc/ruby/proprietary/lib/libcamerapp.so:system/lib/libcamerapp.so \
+    device/htc/ruby/proprietary/lib/libchromatix_mt9d015_default_video.so:system/lib/libchromatix_mt9d015_default_video.so \
+    device/htc/ruby/proprietary/lib/libchromatix_mt9d015_default_zsl.so:system/lib/libchromatix_mt9d015_default_zsl.so \
+    device/htc/ruby/proprietary/lib/libchromatix_mt9d015_preview.so:system/lib/libchromatix_mt9d015_preview.so \
+    device/htc/ruby/proprietary/lib/libchromatix_s5k3h2yx_default_video.so:system/lib/libchromatix_s5k3h2yx_default_video.so \
+    device/htc/ruby/proprietary/lib/libchromatix_s5k3h2yx_hfr.so:system/lib/libchromatix_s5k3h2yx_hfr.so \
+    device/htc/ruby/proprietary/lib/libchromatix_s5k3h2yx_preview.so:system/lib/libchromatix_s5k3h2yx_preview.so \
+    device/htc/ruby/proprietary/lib/libchromatix_s5k3h2yx_zsl.so:system/lib/libchromatix_s5k3h2yx_zsl.so \
+    device/htc/ruby/proprietary/lib/libdiag.so:system/lib/libdiag.so \
+    device/htc/ruby/proprietary/lib/libdsi_netctrl.so:system/lib/libdsi_netctrl.so \
+    device/htc/ruby/proprietary/lib/libdsm.so:system/lib/libdsm.so \
+    device/htc/ruby/proprietary/lib/libdsutils.so:system/lib/libdsutils.so \
+    device/htc/ruby/proprietary/lib/libgemini.so:system/lib/libgemini.so \
+    device/htc/ruby/proprietary/lib/libgsl.so:system/lib/libgsl.so \
+    device/htc/ruby/proprietary/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
+    device/htc/ruby/proprietary/lib/libidl.so:system/lib/libidl.so \
+    device/htc/ruby/proprietary/lib/libmllite.so:system/lib/libmllite.so \
+    device/htc/ruby/proprietary/lib/libmlplatform.so:system/lib/libmlplatform.so \
+    device/htc/ruby/proprietary/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
+    device/htc/ruby/proprietary/lib/libmmipl.so:system/lib/libmmipl.so \
+    device/htc/ruby/proprietary/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
+    device/htc/ruby/proprietary/lib/libmpl.so:system/lib/libmpl.so \
+    device/htc/ruby/proprietary/lib/libmpl_jni.so:system/lib/libmpl_jni.so \
+    device/htc/ruby/proprietary/lib/libnetmgr.so:system/lib/libnetmgr.so \
+    device/htc/ruby/proprietary/lib/libnv.so:system/lib/libnv.so \
+    device/htc/ruby/proprietary/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    device/htc/ruby/proprietary/lib/liboncrpc.so:system/lib/liboncrpc.so \
+    device/htc/ruby/proprietary/lib/libpbmlib.so:system/lib/libpbmlib.so \
+    device/htc/ruby/proprietary/lib/libposteffect.so:system/lib/libposteffect.so \
+    device/htc/ruby/proprietary/lib/libqc-opt.so:system/lib/libqc-opt.so \
+    device/htc/ruby/proprietary/lib/libqdp.so:system/lib/libqdp.so \
+    device/htc/ruby/proprietary/lib/libqmi.so:system/lib/libqmi.so \
+    device/htc/ruby/proprietary/lib/libqmiservices.so:system/lib/libqmiservices.so \
+    device/htc/ruby/proprietary/lib/libqueue.so:system/lib/libqueue.so \
+    device/htc/ruby/proprietary/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
+    device/htc/ruby/proprietary/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
+    device/htc/ruby/proprietary/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    device/htc/ruby/proprietary/vendor/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so \
+    device/htc/ruby/proprietary/xbin/wireless_modem:system/xbin/wireless_modem
+
+# Misc
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.setupwizard.enable_bypass=1 \
+    dalvik.vm.lockprof.threshold=500 \
+    ro.com.google.locationfeatures=1 \
+    dalvik.vm.dexopt-flags=m=y \
+    media.a1026.nsForVoiceRec=0 \
+    media.a1026.enableA1026=0 \
+    htc.audio.alt.enable=0 \
+    htc.audio.hac.enable=0
+
+# Setup device specific product configuration
+PRODUCT_DEVICE := ruby
+PRODUCT_NAME := ruby
+PRODUCT_BRAND := htc
+PRODUCT_MODEL := Amaze 4G
+PRODUCT_MANUFACTURER := HTC
