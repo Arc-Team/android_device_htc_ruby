@@ -40,6 +40,11 @@ PRODUCT_PACKAGES += \
     audio_policy.conf \
     libaudioutils
 
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8660 \
+    libsurfaceflinger_client
+
 # GPS
 PRODUCT_COPY_FILES += \
     device/htc/ruby/proprietary/etc/gps.conf:system/etc/gps.conf
@@ -71,9 +76,9 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxAmrEnc
 
+# Power
 PRODUCT_PACKAGES += \
-    libnetcmdiface \
-    libsurfaceflinger_client
+    power.msm8660
 
 # Torch
 PRODUCT_PACKAGES += \
@@ -83,10 +88,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     com.android.future.usb.accessory
 
-# Filesystem
+# Misc
 PRODUCT_PACKAGES += \
     make_ext4fs \
-    setup_fs
+    setup_fs \
+    libnetcmdiface
 
 # Media configuration
 PRODUCT_COPY_FILES += \
@@ -96,22 +102,6 @@ PRODUCT_COPY_FILES += \
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi
 PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-# Common build properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true \
-    debug.enabletr=true \
-    debug.egl.hw=1 \
-    debug.mdpcomp.maxlayer=0 \
-    debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
-    ro.opengles.version=131072 \
-    ro.bq.gpu_to_cpu_unsupported=1
-
-# Camera wrapper
-PRODUCT_PACKAGES += \
-    camera.msm8660
 
 # Ramdisk files
 PRODUCT_COPY_FILES += \
@@ -142,10 +132,6 @@ PRODUCT_PACKAGES += \
     TQS_D_1.7.ini \
     TQS_D_1.7_127x.ini \
     calibrator
-
-# NETcmdiface
-PRODUCT_PACKAGES += \
-    libnetcmdiface
 
 # Recovery
 PRODUCT_COPY_FILES += \
@@ -312,8 +298,17 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/proprietary/vendor/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so \
     device/htc/ruby/proprietary/xbin/wireless_modem:system/xbin/wireless_modem
 
-# Misc
+# Common build properties
 PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
+    debug.enabletr=true \
+    debug.egl.hw=1 \
+    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.hw=1 \
+    dev.pm.dyn_samplingrate=1 \
+    ro.opengles.version=131072 \
+    ro.bq.gpu_to_cpu_unsupported=1
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1 \
