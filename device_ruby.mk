@@ -126,7 +126,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
 # call proprietary setup
-$(call inherit-product-if-exists, vendor/htc/ruby/ruby-vendor.mk)
+$(call inherit-product-if-exists, device/htc/ruby/ruby-vendor.mk)
 
 # HTC Audio Settings
 $(call inherit-product, device/htc/ruby/media_a1026.mk)

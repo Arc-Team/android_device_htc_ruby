@@ -135,4 +135,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.recordable.rgba8888=1
 
 # call the proprietary setup
-$(call inherit-product-if-exists, vendor/htc/ruby/ruby-vendor.mk)
+$(call inherit-product-if-exists, device/htc/ruby/ruby-vendor.mk)
