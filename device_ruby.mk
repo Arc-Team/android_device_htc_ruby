@@ -15,7 +15,7 @@
 #
 
 # Inherite msm8660-common configs
-$(call inherit-product, device/htc/msm8660-common/msm8660.mk)
+$(call inherit-product, device/htc/ruby/msm8660.mk)
 
 # Ramdisk files
 PRODUCT_COPY_FILES += \
