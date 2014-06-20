@@ -39,7 +39,7 @@ BOARD_USES_LEGACY_ALSA_AUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/ruby/bluetooth/include
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/ruby/bluetooth
 
 # Camera
 BOARD_USES_QCOM_LEGACY_CAM_PARAMS := true
