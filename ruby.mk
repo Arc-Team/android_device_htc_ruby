@@ -134,7 +134,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dev.pm.dyn_samplingrate=1 \
     ro.opengles.version=131072 \
     ro.bq.gpu_to_cpu_unsupported=1 \
-    debug.egl.recordable.rgba8888=1
+    debug.egl.recordable.rgba8888=1 \
+    ro.sf.lcd_density=240 \
+    wifi.interface=wlan0 \
+    persist.sys.usb.config=mtp
 
 # Pick up overlay for features that depend on non-open-source files
 DEVICE_PACKAGE_OVERLAYS := device/htc/ruby/overlay
