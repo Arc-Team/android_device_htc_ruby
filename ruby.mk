@@ -114,13 +114,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
-# Prebuilt
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/libacdbloader.so:obj/lib/libacdbloader.so \
-    device/htc/ruby/prebuilt/lib/libacdbmapper.so:obj/lib/libacdbmapper.so \
-    device/htc/ruby/prebuilt/lib/libaudioalsa.so:obj/lib/libaudioalsa.so \
-    device/htc/ruby/prebuilt/lib/hw/camera.default.so:obj/lib/hw/camera.vendor.msm8660.so
-
 # Binary
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/bin/akmd:system/bin/akmd \
