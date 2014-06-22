@@ -52,7 +52,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/ruby/bluetooth
 
 # GPS
 BOARD_USES_QCOM_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := ruby
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8660
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
 
 # Graphics
@@ -190,6 +190,9 @@ BOARD_SEPOLICY_UNION += \
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/ruby/cmhw
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += device/htc/ruby/overlay
 
 # USB
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun%d/file"
