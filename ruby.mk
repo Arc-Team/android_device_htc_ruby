@@ -2,6 +2,7 @@
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, build/target/product/full_base_telephony.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
+$(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -92,37 +93,6 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/recovery/root/sbin/detect_key:recovery/root/sbin/detect_key \
     device/htc/ruby/recovery/root/sbin/htcbatt:recovery/root/sbin/htcbatt
 
-# Device Tags
-PRODUCT_TAGS += dalvik.gc.type-precise
-
-# Device Density
-PRODUCT_AAPT_CONFIG := normal hdpi
-PRODUCT_AAPT_PREF_CONFIG := hdpi
-
-# Device Properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    com.qc.hardware=true \
-    debug.enabletr=true \
-    debug.egl.hw=1 \
-    debug.mdpcomp.maxlayer=0 \
-    debug.mdpcomp.logs=0 \
-    debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
-    ro.opengles.version=131072 \
-    ro.bq.gpu_to_cpu_unsupported=1 \
-    debug.egl.recordable.rgba8888=1 \
-    ro.sf.lcd_density=240 \
-    wifi.interface=wlan0 \
-    persist.sys.usb.config=mtp \
-    ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.lockprof.threshold=500 \
-    ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-flags=m=y \
-    media.a1026.nsForVoiceRec=0 \
-    media.a1026.enableA1026=0 \
-    htc.audio.alt.enable=0 \
-    htc.audio.hac.enable=0
-
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.autofocus.xml:system/etc/permissions/android.hardware.camera.autofocus.xml \
@@ -143,9 +113,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/com.android.nfc_extras.xml:system/etc/permissions/com.android.nfc_extras.xml \
     frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
-
-# BT
-$(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 
 # Prebuilt
 PRODUCT_COPY_FILES += \
@@ -277,7 +244,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libmmipl.so:system/lib/libmmipl.so \
     device/htc/ruby/prebuilt/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
     device/htc/ruby/prebuilt/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so \
+    device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so
 
 # Chromatix
 PRODUCT_COPY_FILES += \
@@ -322,7 +289,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libqueue.so:system/lib/libqueue.so \
     device/htc/ruby/prebuilt/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
     device/htc/ruby/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    device/htc/ruby/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so \
+    device/htc/ruby/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
@@ -335,3 +302,34 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
     device/htc/ruby/prebuilt/usr/idc/ruby-keypad.idc:system/usr/idc/ruby-keypad.idc
+
+# Device Properties
+PRODUCT_PROPERTY_OVERRIDES += \
+    com.qc.hardware=true \
+    debug.enabletr=true \
+    debug.egl.hw=1 \
+    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.logs=0 \
+    debug.sf.hw=1 \
+    dev.pm.dyn_samplingrate=1 \
+    ro.opengles.version=131072 \
+    ro.bq.gpu_to_cpu_unsupported=1 \
+    debug.egl.recordable.rgba8888=1 \
+    ro.sf.lcd_density=240 \
+    wifi.interface=wlan0 \
+    persist.sys.usb.config=mtp \
+    ro.setupwizard.enable_bypass=1 \
+    dalvik.vm.lockprof.threshold=500 \
+    ro.com.google.locationfeatures=1 \
+    dalvik.vm.dexopt-flags=m=y \
+    media.a1026.nsForVoiceRec=0 \
+    media.a1026.enableA1026=0 \
+    htc.audio.alt.enable=0 \
+    htc.audio.hac.enable=0
+
+# Device Tags
+PRODUCT_TAGS += dalvik.gc.type-precise
+
+# Device Density
+PRODUCT_AAPT_CONFIG := normal hdpi
+PRODUCT_AAPT_PREF_CONFIG := hdpi
