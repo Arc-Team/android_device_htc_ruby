@@ -215,29 +215,51 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
     device/htc/ruby/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
 
-# Adreno
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
-    device/htc/ruby/prebuilt/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so
-
 # Hardware
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/hw/camera.default.so:system/lib/hw/camera.vendor.msm8660.so \
     device/htc/ruby/prebuilt/lib/hw/nfc.ruby.so:system/lib/hw/nfc.ruby.so \
     device/htc/ruby/prebuilt/lib/hw/sensors.ruby.so:system/lib/hw/sensors.ruby.so
 
+# Adreno
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/egl/eglsubAndroid.so:system/lib/egl/eglsubAndroid.so \
+    device/htc/ruby/prebuilt/lib/egl/libEGL_adreno200.so:system/lib/egl/libEGL_adreno200.so \
+    device/htc/ruby/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:system/lib/egl/libGLESv1_CM_adreno200.so \
+    device/htc/ruby/prebuilt/lib/egl/libGLESv2_adreno200.so:system/lib/egl/libGLESv2_adreno200.so \
+    device/htc/ruby/prebuilt/lib/egl/libq3dtools_adreno200.so:system/lib/egl/libq3dtools_adreno200.so \
+    device/htc/ruby/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
+    device/htc/ruby/prebuilt/lib/libOpenVG.so:system/lib/libOpenVG.so \
+    device/htc/ruby/prebuilt/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
+    device/htc/ruby/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
+    device/htc/ruby/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so
+
+# Audio
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/libacdbloader.so:system/lib/libacdbloader.so \
+    device/htc/ruby/prebuilt/lib/libacdbmapper.so:system/lib/libacdbmapper.so \
+    device/htc/ruby/prebuilt/lib/libaudcal.so:system/lib/libaudcal.so \
+    device/htc/ruby/prebuilt/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
+    device/htc/ruby/prebuilt/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so
+
 # Camera
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libcameraface.so:system/lib/libcameraface.so \
     device/htc/ruby/prebuilt/lib/libcamerapp.so:system/lib/libcamerapp.so \
     device/htc/ruby/prebuilt/lib/libgemini.so:system/lib/libgemini.so \
+    device/htc/ruby/prebuilt/lib/libidl.so:system/lib/libidl.so \
     device/htc/ruby/prebuilt/lib/libmmipl.so:system/lib/libmmipl.so \
     device/htc/ruby/prebuilt/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
     device/htc/ruby/prebuilt/lib/liboemcamera.so:system/lib/liboemcamera.so \
+    device/htc/ruby/prebuilt/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
     device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/libmllite.so:system/lib/libmllite.so \
+    device/htc/ruby/prebuilt/lib/libmlplatform.so:system/lib/libmlplatform.so \
+    device/htc/ruby/prebuilt/lib/libmpl.so:system/lib/libmpl.so \
+    device/htc/ruby/prebuilt/lib/libmpl_jni.so:system/lib/libmpl_jni.so
 
 # Chromatix
 PRODUCT_COPY_FILES += \
@@ -249,28 +271,11 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libchromatix_s5k3h2yx_preview.so:system/lib/libchromatix_s5k3h2yx_preview.so \
     device/htc/ruby/prebuilt/lib/libchromatix_s5k3h2yx_zsl.so:system/lib/libchromatix_s5k3h2yx_zsl.so
 
-# Misc
+# Radio
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/libC2D2.so:system/lib/libC2D2.so \
-    device/htc/ruby/prebuilt/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
-    device/htc/ruby/prebuilt/lib/libOpenVG.so:system/lib/libOpenVG.so \
-    device/htc/ruby/prebuilt/lib/libacdbloader.so:system/lib/libacdbloader.so \
-    device/htc/ruby/prebuilt/lib/libacdbmapper.so:system/lib/libacdbmapper.so \
-    device/htc/ruby/prebuilt/lib/libaudcal.so:system/lib/libaudcal.so \
-    device/htc/ruby/prebuilt/lib/libaudioalsa.so:system/lib/libaudioalsa.so \
-    device/htc/ruby/prebuilt/lib/libc2d2_z180.so:system/lib/libc2d2_z180.so \
     device/htc/ruby/prebuilt/lib/libdiag.so:system/lib/libdiag.so \
     device/htc/ruby/prebuilt/lib/libdsi_netctrl.so:system/lib/libdsi_netctrl.so \
-    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so \
     device/htc/ruby/prebuilt/lib/libdsutils.so:system/lib/libdsutils.so \
-    device/htc/ruby/prebuilt/lib/libgsl.so:system/lib/libgsl.so \
-    device/htc/ruby/prebuilt/lib/libhtc_acoustic.so:system/lib/libhtc_acoustic.so \
-    device/htc/ruby/prebuilt/lib/libidl.so:system/lib/libidl.so \
-    device/htc/ruby/prebuilt/lib/libmllite.so:system/lib/libmllite.so \
-    device/htc/ruby/prebuilt/lib/libmlplatform.so:system/lib/libmlplatform.so \
-    device/htc/ruby/prebuilt/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
-    device/htc/ruby/prebuilt/lib/libmpl.so:system/lib/libmpl.so \
-    device/htc/ruby/prebuilt/lib/libmpl_jni.so:system/lib/libmpl_jni.so \
     device/htc/ruby/prebuilt/lib/libnetmgr.so:system/lib/libnetmgr.so \
     device/htc/ruby/prebuilt/lib/libnv.so:system/lib/libnv.so \
     device/htc/ruby/prebuilt/lib/liboncrpc.so:system/lib/liboncrpc.so \
@@ -281,8 +286,12 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
     device/htc/ruby/prebuilt/lib/libqueue.so:system/lib/libqueue.so \
     device/htc/ruby/prebuilt/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
-    device/htc/ruby/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
-    device/htc/ruby/prebuilt/lib/libsc-a2xx.so:system/lib/libsc-a2xx.so
+    device/htc/ruby/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so
+
+# Misc
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
+    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so \
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
