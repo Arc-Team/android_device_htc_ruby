@@ -47,15 +47,21 @@ PRODUCT_PACKAGES += \
     power.msm8660 \
     gps.msm8660
 
-# Wi-Fi
-PRODUCT_PACKAGES += \
-    dhcpcd.conf \
-    hostapd.conf \
-    wpa_supplicant.conf \
-    tiwlan.ini \
-    TQS_D_1.7.ini \
-    TQS_D_1.7_127x.ini \
-    calibrator
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    fstab.ruby \
+    init.qcom.sh \
+    init.ruby.rc \
+    init.ruby.usb.rc \
+    ueventd.ruby.rc
+
+# Recovery
+PRODUCT_COPY_FILES += \
+    choice_fn \
+    power_test \
+    offmode_charging \
+    detect_key \
+    htcbatt
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -70,28 +76,22 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     setup_fs
 
+# Wi-Fi
+PRODUCT_PACKAGES += \
+    dhcpcd.conf \
+    hostapd.conf \
+    wpa_supplicant.conf \
+    tiwlan.ini \
+    TQS_D_1.7.ini \
+    TQS_D_1.7_127x.ini \
+    calibrator
+
 # Misc
 PRODUCT_PACKAGES += \
     Torch \
     libnetcmdiface \
     libsurfaceflinger_client \
     com.android.future.usb.accessory
-
-# Ramdisk
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/ramdisk/fstab.ruby:root/fstab.ruby \
-    device/htc/ruby/ramdisk/init.qcom.sh:root/init.qcom.sh \
-    device/htc/ruby/ramdisk/init.ruby.rc:root/init.ruby.rc \
-    device/htc/ruby/ramdisk/init.ruby.usb.rc:root/init.ruby.usb.rc \
-    device/htc/ruby/ramdisk/ueventd.ruby.rc:root/ueventd.ruby.rc
-
-# Recovery
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/recovery/root/sbin/choice_fn:recovery/root/sbin/choice_fn \
-    device/htc/ruby/recovery/root/sbin/power_test:recovery/root/sbin/power_test \
-    device/htc/ruby/recovery/root/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
-    device/htc/ruby/recovery/root/sbin/detect_key:recovery/root/sbin/detect_key \
-    device/htc/ruby/recovery/root/sbin/htcbatt:recovery/root/sbin/htcbatt
 
 # Permissions
 PRODUCT_COPY_FILES += \
