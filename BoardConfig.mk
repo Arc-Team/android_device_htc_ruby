@@ -121,7 +121,7 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 # Recovery
 USE_SET_METADATA := false
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_FSTAB = device/htc/ruby/ramdisk/fstab.ruby
+TARGET_RECOVERY_FSTAB := device/htc/ruby/ramdisk/fstab.ruby
 
 # CWM
 BOARD_HAS_NO_SELECT_BUTTON := true

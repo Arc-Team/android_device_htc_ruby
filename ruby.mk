@@ -48,7 +48,7 @@ PRODUCT_PACKAGES += \
     gps.msm8660
 
 # Ramdisk
-PRODUCT_COPY_FILES += \
+PRODUCT_PACKAGES += \
     fstab.ruby \
     init.qcom.sh \
     init.ruby.rc \
@@ -56,7 +56,7 @@ PRODUCT_COPY_FILES += \
     ueventd.ruby.rc
 
 # Recovery
-PRODUCT_COPY_FILES += \
+PRODUCT_PACKAGES += \
     choice_fn \
     power_test \
     offmode_charging \
