@@ -291,7 +291,7 @@ PRODUCT_COPY_FILES += \
 # Misc
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
-    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so \
+    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
