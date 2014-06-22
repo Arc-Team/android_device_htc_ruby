@@ -217,7 +217,7 @@ PRODUCT_COPY_FILES += \
 
 # Hardware
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/hw/camera.default.so:system/lib/hw/camera.vendor.msm8660.so \
+    device/htc/ruby/prebuilt/lib/hw/camera.vendor.msm8660.so:system/lib/hw/camera.vendor.msm8660.so \
     device/htc/ruby/prebuilt/lib/hw/nfc.ruby.so:system/lib/hw/nfc.ruby.so \
     device/htc/ruby/prebuilt/lib/hw/sensors.ruby.so:system/lib/hw/sensors.ruby.so
 
