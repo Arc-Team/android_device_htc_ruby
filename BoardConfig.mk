@@ -121,7 +121,7 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 # Recovery
 USE_SET_METADATA := false
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TARGET_RECOVERY_FSTAB := device/htc/ruby/ramdisk/fstab.ruby
+TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
 
 # CWM
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -132,6 +132,14 @@ BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk1p1
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk1
 BOARD_SDEXT_DEVICE := /dev/block/mmcblk1p2
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness\"
+
+# TWRP
+DEVICE_RESOLUTION := 540x960
+TW_INCLUDE_DUMLOCK := true
+TW_INTERNAL_STORAGE_PATH := "/emmc"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
 
 # Webkit
 ENABLE_WEBGL := true
