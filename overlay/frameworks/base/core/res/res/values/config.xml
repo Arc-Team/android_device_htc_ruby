@@ -25,7 +25,7 @@
     <integer name="config_deskDockKeepsScreenOn">0</integer>
 
     <!-- If this is true, the screen will come on when you unplug usb/power/whatever. -->
-    <bool name="config_unplugTurnsOnScreen">true</bool>>
+    <bool name="config_unplugTurnsOnScreen">true</bool>
 
     <!-- Enables or disables fading edges when marquee is enabled in TextView. -->
     <bool name="config_ui_enableFadingMarquee">false</bool>
