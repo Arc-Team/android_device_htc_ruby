@@ -192,8 +192,6 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
     device/htc/ruby/prebuilt/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
     device/htc/ruby/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/htc/ruby/prebuilt/etc/firmware/a300_pfp.fw:system/etc/firmware/a300_pfp.fw \
-    device/htc/ruby/prebuilt/etc/firmware/a300_pm4.fw:system/etc/firmware/a300_pm4.fw \
     device/htc/ruby/prebuilt/etc/firmware/firmware.bin:system/etc/wifi/firmware.bin \
     device/htc/ruby/prebuilt/etc/firmware/firmware_ap.bin:system/etc/wifi/firmware_ap.bin \
     device/htc/ruby/prebuilt/etc/firmware/fm_rx_init_1273.2.bts:system/etc/firmware/fm_rx_init_1273.2.bts \
@@ -201,8 +199,6 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/firmware/htc_1271fw.bin:system/etc/firmware/htc_1271fw.bin \
     device/htc/ruby/prebuilt/etc/firmware/htc_1271fw_196_header.bin:system/etc/firmware/htc_1271fw_196_header.bin \
     device/htc/ruby/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/htc/ruby/prebuilt/etc/firmware/leia_pfp_470.fw:system/etc/firmware/leia_pfp_470.fw \
-    device/htc/ruby/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     device/htc/ruby/prebuilt/etc/firmware/leia_pm4_470.fw:system/etc/firmware/leia_pm4_470.fw \
     device/htc/ruby/prebuilt/etc/firmware/libpn544_fw.so:system/vendor/firmware/libpn544_fw.so \
     device/htc/ruby/prebuilt/etc/firmware/ti-connectivity/wl1271-nvs.bin:system/etc/firmware/ti-connectivity/wl1271-nvs.bin \
