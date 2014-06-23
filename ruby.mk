@@ -256,6 +256,13 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
     device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so
 
+# CamTmpFix
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/app/Camera2.apk:system/app/Camera2.apk \
+    device/htc/ruby/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so \
+    device/htc/ruby/prebuilt/lib/libcamera_metadata.so:system/lib/libcamera_metadata.so \
+    device/htc/ruby/prebuilt/lib/libcameraservice.so:system/lib/libcameraservice.so
+
 # Sensors
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libmllite.so:system/lib/libmllite.so \
