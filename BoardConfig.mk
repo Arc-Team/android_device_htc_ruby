@@ -37,6 +37,7 @@ TARGET_QCOM_MEDIA_VARIANT := ruby
 BOARD_QCOM_TUNNEL_LPA_ENABLED := false
 BOARD_USES_LEGACY_ALSA_AUDIO := true
 BOARD_USES_FLUENCE_INCALL := true
+BOARD_QCOM_VOIP_ENABLED := true
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_CAMCORDER := true
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true
@@ -125,6 +126,7 @@ TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
 
 # CWM
 BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 BOARD_RECOVERY_SWIPE := true
 BOARD_USES_MMCUTILS := true
@@ -187,6 +189,7 @@ BOARD_SEPOLICY_UNION += \
     keystore.te \
     kickstart.te \
     mediaserver.te \
+    netd.te \
     rild.te \
     surfaceflinger.te \
     system.te \
