@@ -310,6 +310,11 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/usr/idc/atmel-touchscreen.idc:system/usr/idc/atmel-touchscreen.idc \
     device/htc/ruby/prebuilt/usr/idc/ruby-keypad.idc:system/usr/idc/ruby-keypad.idc
 
+# Device Default Properties
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    persist.sys.root_access=3 \
+    ro.adb.secure=3
+
 # Device Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
@@ -324,14 +329,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.recordable.rgba8888=1 \
     ro.sf.lcd_density=240 \
     wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=255 \
     ro.config.low_ram=true \
     dalvik.vm.jit.codecachesize=0 \
     ro.ksm.default=1 \
     persist.sys.usb.config=mtp \
+    persist.sys.use_16bpp_alpha=1 \
+    ro.debuggable=1 \
+    ro.vold.umsdirtyratio=40 \
+    persist.service.adb.enable=1 \
+    persist.service.debuggable=1 \
+    persist.sys.purgeable_assets=1 \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
     ro.com.google.locationfeatures=1 \
-    dalvik.vm.dexopt-flags=m=y \
+    dalvik.vm.dexopt-flags=m=v,o=y \
     media.a1026.nsForVoiceRec=0 \
     media.a1026.enableA1026=0 \
     htc.audio.alt.enable=0 \
