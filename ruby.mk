@@ -149,10 +149,11 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/ruby/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
 
-# Qualcomm scripts
+# Scripts
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/htc/ruby/prebuilt/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh
+    device/htc/ruby/prebuilt/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
 
 # WiFi
 PRODUCT_COPY_FILES += \
