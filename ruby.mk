@@ -324,6 +324,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.egl.recordable.rgba8888=1 \
     ro.sf.lcd_density=240 \
     wifi.interface=wlan0 \
+    ro.ksm.default=1 \
     persist.sys.usb.config=mtp \
     ro.setupwizard.enable_bypass=1 \
     dalvik.vm.lockprof.threshold=500 \
