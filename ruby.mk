@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     camera.msm8660 \
     power.msm8660 \
-    gps.msm8660
+    gps.ruby
 
 # Ramdisk
 PRODUCT_PACKAGES += \
