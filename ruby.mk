@@ -138,10 +138,11 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/bin/zchgd:system/bin/zchgd \
     device/htc/ruby/prebuilt/xbin/wireless_modem:system/xbin/wireless_modem
 
-# GPS
+# GPS and Host Config
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/agps_rm:system/etc/agps_rm \
     device/htc/ruby/prebuilt/etc/gps.conf:system/etc/gps.conf \
+    device/htc/ruby/prebuilt/etc/host:system/etc/host \
     device/htc/ruby/prebuilt/etc/vpimg:system/etc/vpimg
 
 # Media
