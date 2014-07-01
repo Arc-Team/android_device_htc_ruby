@@ -57,11 +57,13 @@ PRODUCT_PACKAGES += \
 
 # Recovery
 PRODUCT_PACKAGES += \
+    init.recovery.ruby.rc \
     choice_fn \
     power_test \
     offmode_charging \
     detect_key \
-    htcbatt
+    htcbatt \
+    twrp.fstab
 
 # NFC
 PRODUCT_PACKAGES += \

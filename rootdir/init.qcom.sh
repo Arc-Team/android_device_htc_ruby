@@ -1,34 +1,6 @@
 #!/system/bin/sh
-# 
-#
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-#
-#
-#
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-# 
-#
+# Start ril-daemon only for targets on which radio is present
 
-#
-# start ril-daemon only for targets on which radio is present
-#
 baseband=`getprop ro.baseband`
 multirild=`getprop ro.multi.rild`
 dsds=`getprop persist.dsds.enabled`
@@ -54,18 +26,13 @@ case "$baseband" in
     esac
 esac
 
-#
-# Suppress default route installation during RA for IPV6; user space will take
-# care of this
-#
+# Suppress default route installation during RA for IPV6; user space will take care of this
 for file in /proc/sys/net/ipv6/conf/*
 do
   echo 0 > $file/accept_ra_defrtr
 done
 
-#
 # Update USB serial number if passed from command line
-#
 serialnum=`getprop ro.serialno`
 case "$serialnum" in
     "") ;; #Do nothing, use default serial number or check for persist one below
@@ -73,10 +40,8 @@ case "$serialnum" in
     echo "$serialnum" > /sys/class/android_usb/android0/iSerial
 esac
 
-#
 # Allow unique persistent serial numbers for devices connected via usb
 # User needs to set unique usb serial number to persist.usb.serialno
-#
 serialno=`getprop persist.usb.serialno`
 case "$serialno" in
     "") ;; #Do nothing here
@@ -84,10 +49,8 @@ case "$serialno" in
     echo "$serialno" > /sys/class/android_usb/android0/iSerial
 esac
 
-#
 # Allow persistent usb charging disabling
 # User needs to set usb charging disabled in persist.usb.chgdisabled
-#
 target=`getprop ro.board.platform`
 usbchgdisabled=`getprop persist.usb.chgdisabled`
 case "$usbchgdisabled" in
@@ -97,21 +60,19 @@ case "$usbchgdisabled" in
         "msm8660" | "msm8660_csfb")
         echo "$usbchgdisabled" > /sys/module/pmic8058_charger/parameters/disabled
         echo "$usbchgdisabled" > /sys/module/smb137b/parameters/disabled
-	;;
+    ;;
         "msm8960")
         echo "$usbchgdisabled" > /sys/module/pm8921_charger/parameters/disabled
-	;;
+    ;;
     esac
 esac
 
-#
 # Allow USB enumeration with default PID/VID
-#
 echo 1  > /sys/class/android_usb/f_mass_storage/lun/nofua
 case $target in
     "msm8960")
         socid=`cat /sys/devices/system/soc/soc0/id`
-#socid 109: 8064. Revisit later when 8064 target arrives
+        # socid 109: 8064. Revisit later when 8064 target arrives
         case "$socid" in
             "109")
                 echo 0       > /sys/class/android_usb/android0/enable
@@ -169,10 +130,7 @@ case $target in
     ;;
 esac
 
-
-#
 # Start gpsone_daemon for SVLTE Type I & II devices
-#
 case "$target" in
         "msm7630_fusion")
         start gpsone_daemon
@@ -216,17 +174,17 @@ case "$target" in
 
         esac
 
-# Dynamic Memory Managment (DMM) provides a sys file system to the userspace
-# that can be used to plug in/out memory that has been configured as unstable.
-# This unstable memory can be in Active or In-Active State.
-# Each of which the userspace can request by writing to a sys file.
+        # Dynamic Memory Managment (DMM) provides a sys file system to the userspace
+        # that can be used to plug in/out memory that has been configured as unstable.
+        # This unstable memory can be in Active or In-Active State.
+        # Each of which the userspace can request by writing to a sys file.
 
-# ro.dev.dmm = 1; Indicates that DMM is enabled in the Android User Space. This
-# property is set in the Android system properties file.
+        # ro.dev.dmm = 1; Indicates that DMM is enabled in the Android User Space. This
+        # property is set in the Android system properties file.
 
-# ro.dev.dmm.dpd.start_address is set when the target has a 2x256Mb memory
-# configuration. This is also used to indicate that the target is capable of
-# setting EBI-1 to Deep Power Down or Self Refresh.
+        # ro.dev.dmm.dpd.start_address is set when the target has a 2x256Mb memory
+        # configuration. This is also used to indicate that the target is capable of
+        # setting EBI-1 to Deep Power Down or Self Refresh.
 
         mem="/sys/devices/system/memory"
         op=`cat $mem/movable_start_bytes`
@@ -325,5 +283,4 @@ case "$target" in
         chown root.system /sys/devices/platform/msm_hsusb/gadget/wakeup
         chmod 220 /sys/devices/platform/msm_hsusb/gadget/wakeup
         ;;
-
 esac
