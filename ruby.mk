@@ -156,6 +156,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/init.ruby.post_boot.sh:system/etc/init.ruby.post_boot.sh \
     device/htc/ruby/prebuilt/etc/init.ruby.efs.sync.sh:system/etc/init.ruby.efs.sync.sh \
+    device/htc/ruby/prebuilt/etc/init.d/01dalvik:system/etc/init.d/01dalvik \
     device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
 
 # WiFi
@@ -335,6 +336,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=255 \
     ro.config.low_ram=true \
+    dalvik.vm.heapsize=288m \
     dalvik.vm.jit.codecachesize=0 \
     ro.ksm.default=1 \
     persist.sys.usb.config=mtp,adb \
