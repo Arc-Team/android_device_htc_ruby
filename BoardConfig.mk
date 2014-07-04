@@ -21,7 +21,7 @@ TARGET_CPU_VARIANT := scorpion
 # Kernel
 BOARD_KERNEL_BASE := 0x48000000
 BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=ruby no_console_suspend=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=ruby no_console_suspend=1 androidboot.selinux=permissive
 TARGET_KERNEL_SOURCE := kernel/htc/ruby
 TARGET_KERNEL_CONFIG := ruby_defconfig
 
