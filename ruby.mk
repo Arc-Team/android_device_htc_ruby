@@ -50,7 +50,7 @@ PRODUCT_PACKAGES += \
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.ruby \
-    init.qcom.sh \
+    init.ruby.sh \
     init.ruby.rc \
     init.ruby.usb.rc \
     ueventd.ruby.rc
@@ -154,8 +154,8 @@ PRODUCT_COPY_FILES += \
 
 # Scripts
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/etc/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
-    device/htc/ruby/prebuilt/etc/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
+    device/htc/ruby/prebuilt/etc/init.ruby.post_boot.sh:system/etc/init.ruby.post_boot.sh \
+    device/htc/ruby/prebuilt/etc/init.ruby.efs.sync.sh:system/etc/init.ruby.efs.sync.sh \
     device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
 
 # WiFi
