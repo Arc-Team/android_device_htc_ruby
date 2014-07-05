@@ -1,7 +1,6 @@
 # Inherit
 $(call inherit-product, build/target/product/languages_full.mk)
 $(call inherit-product, build/target/product/full_base_telephony.mk)
-$(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 $(call inherit-product, hardware/ti/wpan/ti-wpan-products.mk)
 
 # Audio
@@ -324,7 +323,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
     dalvik.vm.dexopt-flags=m=v,o=y \
+    dalvik.vm.heapgrowthlimit=64m \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=2m \
     dalvik.vm.heapsize=288m \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heaptargetutilization=0.75 \
     dalvik.vm.jit.codecachesize=0 \
     dalvik.vm.lockprof.threshold=500 \
     debug.egl.hw=1 \
