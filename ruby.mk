@@ -317,7 +317,8 @@ PRODUCT_COPY_FILES += \
 # Device Default Properties
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.root_access=3 \
-    ro.adb.secure=3
+    ro.adb.secure=3 \
+    ro.secure=0
 
 # Device Properties
 PRODUCT_PROPERTY_OVERRIDES += \
