@@ -1,1 +1,1 @@
-add_lunch_combo cm_ruby-eng
+add_lunch_combo cm_ruby-userdebug
