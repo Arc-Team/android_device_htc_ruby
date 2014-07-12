@@ -24,6 +24,7 @@ BOARD_KERNEL_PAGE_SIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=ruby no_console_suspend=1 androidboot.selinux=permissive
 TARGET_KERNEL_SOURCE := kernel/htc/ruby
 TARGET_KERNEL_CONFIG := ruby_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := linaro-4.9-cortex-a8
 
 # QCOM
 BOARD_USES_QCOM_HARDWARE := true
