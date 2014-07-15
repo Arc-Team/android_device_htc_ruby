@@ -389,16 +389,16 @@ on property:wlan.driver.status=ok
 
 # Powersave
 on property:sys.perf.profile=0
-#   start mpdecision
-#   start thermald
+    start mpdecision
+    write /sys/devices/system/cpu/cpu0/online 1
+    write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "conservative"
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "conservative"
     write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "ondemand"
 
 # Balanced
 on property:sys.perf.profile=1
-#   start mpdecision
-#   start thermald
+    start mpdecision
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
@@ -415,8 +415,7 @@ on property:sys.perf.profile=1
 
 # High performance
 on property:sys.perf.profile=2
-#   stop mpdecision
-#   stop thermald
+    stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
