@@ -42,13 +42,6 @@ net.dns1=8.8.8.8
 net.dns2=8.8.4.4
 net.ppp0.dns1=8.8.8.8
 net.ppp0.dns2=8.8.4.4
-net.tcp.buffersize.default=6144,87380,1048576,6144,87380,524288
-net.tcp.buffersize.edge=6144,87380,524288,6144,16384,262144
-net.tcp.buffersize.gprs=6144,87380,1048576,6144,87380,524288
-net.tcp.buffersize.hsdpa=6144,87380,1048576,6144,87380,1048576
-net.tcp.buffersize.hspa=6144,87380,524288,6144,16384,262144
-net.tcp.buffersize.umts=6144,87380,1048576,6144,87380,524288
-net.tcp.buffersize.wifi=524288,1048576,2097152,524288,1048576,2097152
 
 # Hardware
 ro.device.chipset=Qualcomm MSM8660 Snapdragon S3
