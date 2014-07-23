@@ -4,11 +4,10 @@ on early-init
     write /sys/block/mmcblk0/bdi/read_ahead_kb 512
 
 on init
-    # 4.3 needs this
+    # Needs this for 4.3+
     chmod 0777 /proc/cmdline
 
-    # Begin Storage
-
+    # Storage
     mkdir /mnt/media_rw 0770 media_rw media_rw
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
@@ -17,18 +16,16 @@ on init
     mkdir /storage/sdcard1 0700 root root
     mkdir /storage/usbdisk 0700 root root
 
-    export EXTERNAL_STORAGE /storage/sdcard0
+    export EXTERNAL_STORAGE  /storage/sdcard0
     export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk0
 
-    # for backwards compatibility
+    # For backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
     symlink /storage/sdcard1 /external_sd
     symlink /storage/sdcard1 /mnt/external_sd
     symlink /storage/usbdisk0 /usbdisk0
     symlink /storage/usbdisk0 /mnt/usbdisk0
-
-    # End Storage
 
     # Dummy command to open() /dev/smd0 and not attempt to read any bytes from it
     #
@@ -41,7 +38,7 @@ on init
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
-    # msm8x60 firmware
+    # MSMS8x60 Firmware
     rm /vendor
     mkdir /vendor 0771 system system
     mkdir /vendor/firmware 0771 system system
@@ -93,7 +90,7 @@ on init
     mkdir /devlog 0700 root root
 
 on fs
-    # mount all mmc partitions
+    # Mount all mmc partitions
     mount_all ./fstab.ruby
 
     symlink /system/vendor/lib /vendor/lib
@@ -408,15 +405,17 @@ on property:sys.perf.profile=0
     start mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 0
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "conservative"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "conservative"
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "ondemand"
+    write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
+    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
 # Balanced
 on property:sys.perf.profile=1
     start mpdecision
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
+    write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
     write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 0
@@ -427,13 +426,14 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 918000
     write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 1026000
     write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "ondemand"
+    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
 
 # High performance
 on property:sys.perf.profile=2
     stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "performance"
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "performance"
-    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor "performance"
+    write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
+    write /sys/class/kgsl/kgsl-3d0/pwrscale/trustzone/governor performance
