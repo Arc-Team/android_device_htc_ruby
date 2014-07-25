@@ -1,6 +1,6 @@
 # System
 #dev/block/mmcblk0p17    /vendor/firmware/misc        vfat    ro,shortname=lower      wait
-#dev/block/mmcblk0p18    /vendor/firmware/misc_mdm    vfat    ro shortname=lower      wait
+#dev/block/mmcblk0p18    /vendor/firmware/misc_mdm    vfat    ro,shortname=lower      wait
 #dev/block/mmcblk0p21    /vendor/firmware/adsp        vfat    ro,shortname=lower      wait
 /dev/block/mmcblk0p22    /boot                        emmc    defaults                defaults
 /dev/block/mmcblk0p23    /recovery                    emmc    defaults                defaults
