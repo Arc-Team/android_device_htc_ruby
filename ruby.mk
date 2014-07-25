@@ -19,6 +19,7 @@ PRODUCT_PACKAGES += \
     copybit.msm8660 \
     gralloc.msm8660 \
     hwcomposer.msm8660 \
+    memtrack.msm8660 \
     lights.msm8660 \
     libgenlock \
     libmemalloc \
@@ -92,7 +93,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Torch \
     libnetcmdiface \
-    libsurfaceflinger_client \
     com.android.future.usb.accessory
 
 # Permissions
@@ -127,7 +127,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/bin/ipd:system/bin/ipd \
     device/htc/ruby/prebuilt/bin/ks:system/bin/ks \
     device/htc/ruby/prebuilt/bin/lsc_camera:system/bin/lsc_camera \
-    device/htc/ruby/prebuilt/bin/mpdecision:system/bin/mpdecision \
+    device/htc/ruby/prebuilt/bin/mm-qcamera-daemon:system/bin/mm-qcamera-daemon \
     device/htc/ruby/prebuilt/bin/netmgrd:system/bin/netmgrd \
     device/htc/ruby/prebuilt/bin/netsharing:system/bin/netsharing \
     device/htc/ruby/prebuilt/bin/port-bridge:system/bin/port-bridge \
@@ -197,8 +197,6 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/firmware/a225_pfp.fw:system/etc/firmware/a225_pfp.fw \
     device/htc/ruby/prebuilt/etc/firmware/a225_pm4.fw:system/etc/firmware/a225_pm4.fw \
     device/htc/ruby/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
-    device/htc/ruby/prebuilt/etc/firmware/firmware.bin:system/etc/wifi/firmware.bin \
-    device/htc/ruby/prebuilt/etc/firmware/firmware_ap.bin:system/etc/wifi/firmware_ap.bin \
     device/htc/ruby/prebuilt/etc/firmware/fm_rx_init_1273.2.bts:system/etc/firmware/fm_rx_init_1273.2.bts \
     device/htc/ruby/prebuilt/etc/firmware/fmc_init_1273.2.bts:system/etc/firmware/fmc_init_1273.2.bts \
     device/htc/ruby/prebuilt/etc/firmware/htc_1271fw.bin:system/etc/firmware/htc_1271fw.bin \
@@ -212,9 +210,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin:system/etc/firmware/ti-connectivity/wl127x-fw-4-sr.bin \
     device/htc/ruby/prebuilt/etc/firmware/vac_config.ini:system/etc/firmware/vac_config.ini \
     device/htc/ruby/prebuilt/etc/firmware/version:system/etc/firmware/version \
-    device/htc/ruby/prebuilt/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw \
-    device/htc/ruby/prebuilt/etc/firmware/yamato_pfp.fw:system/etc/firmware/yamato_pfp.fw \
-    device/htc/ruby/prebuilt/etc/firmware/yamato_pm4.fw:system/etc/firmware/yamato_pm4.fw
+    device/htc/ruby/prebuilt/etc/firmware/vidc_1080p.fw:system/etc/firmware/vidc_1080p.fw
 
 # Hardware
 PRODUCT_COPY_FILES += \
@@ -247,26 +243,37 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/libcam_oem_plugin.so:system/lib/libcam_oem_plugin.so \
+    device/htc/ruby/prebuilt/lib/libcameraasd.so:system/lib/libcameraasd.so \
     device/htc/ruby/prebuilt/lib/libcameraface.so:system/lib/libcameraface.so \
     device/htc/ruby/prebuilt/lib/libcamerapp.so:system/lib/libcamerapp.so \
     device/htc/ruby/prebuilt/lib/libgemini.so:system/lib/libgemini.so \
+    device/htc/ruby/prebuilt/lib/libhtccamera.so:system/lib/libhtccamera.so \
     device/htc/ruby/prebuilt/lib/libidl.so:system/lib/libidl.so \
     device/htc/ruby/prebuilt/lib/libmmipl.so:system/lib/libmmipl.so \
     device/htc/ruby/prebuilt/lib/libmmjpeg.so:system/lib/libmmjpeg.so \
     device/htc/ruby/prebuilt/lib/liboemcamera.so:system/lib/liboemcamera.so \
-    device/htc/ruby/prebuilt/lib/libOlaEngine.so:system/lib/libOlaEngine.so \
-    device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so
+    device/htc/ruby/prebuilt/lib/libposteffect.so:system/lib/libposteffect.so \
+    device/htc/ruby/prebuilt/lib/libimage-jpeg-dec-omx-comp.so:system/lib/libimage-jpeg-dec-omx-comp.so \
+    device/htc/ruby/prebuilt/lib/libimage-jpeg-enc-omx-comp.so:system/lib/libimage-jpeg-enc-omx-comp.so \
+    device/htc/ruby/prebuilt/lib/libimage-omx-common.so:system/lib/libimage-omx-common.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_faceproc.so:system/lib/libmmcamera_faceproc.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_frameproc.so:system/lib/libmmcamera_frameproc.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_hdr_lib.so:system/lib/libmmcamera_hdr_lib.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_image_stab.so:system/lib/libmmcamera_image_stab.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_interface2.so:system/lib/libmmcamera_interface2.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_rawchipproc.so:system/lib/libmmcamera_rawchipproc.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_statsproc31.so:system/lib/libmmcamera_statsproc31.so \
+    device/htc/ruby/prebuilt/lib/libmmcamera_wavelet_lib.so:system/lib/libmmcamera_wavelet_lib.so
 
 # CamTmpFix
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so \
-    device/htc/ruby/prebuilt/lib/libcamera_metadata.so:system/lib/libcamera_metadata.so \
-    device/htc/ruby/prebuilt/lib/libcameraservice.so:system/lib/libcameraservice.so
+#PRODUCT_COPY_FILES += \
+#    device/htc/ruby/prebuilt/lib/libcamera_client.so:system/lib/libcamera_client.so \
+#    device/htc/ruby/prebuilt/lib/libcamera_metadata.so:system/lib/libcamera_metadata.so \
+#    device/htc/ruby/prebuilt/lib/libcameraservice.so:system/lib/libcameraservice.so
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/libmllite.so:system/lib/libmllite.so \
-    device/htc/ruby/prebuilt/lib/libmlplatform.so:system/lib/libmlplatform.so \
     device/htc/ruby/prebuilt/lib/libmpl.so:system/lib/libmpl.so \
     device/htc/ruby/prebuilt/lib/libmpl_jni.so:system/lib/libmpl_jni.so
 
@@ -275,6 +282,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libchromatix_mt9d015_default_video.so:system/lib/libchromatix_mt9d015_default_video.so \
     device/htc/ruby/prebuilt/lib/libchromatix_mt9d015_default_zsl.so:system/lib/libchromatix_mt9d015_default_zsl.so \
     device/htc/ruby/prebuilt/lib/libchromatix_mt9d015_preview.so:system/lib/libchromatix_mt9d015_preview.so \
+    device/htc/ruby/prebuilt/lib/libchromatix_s5k3h1gx_hdr.so:system/lib/libchromatix_s5k3h1gx_hdr.so \
     device/htc/ruby/prebuilt/lib/libchromatix_s5k3h2yx_default_video.so:system/lib/libchromatix_s5k3h2yx_default_video.so \
     device/htc/ruby/prebuilt/lib/libchromatix_s5k3h2yx_hfr.so:system/lib/libchromatix_s5k3h2yx_hfr.so \
     device/htc/ruby/prebuilt/lib/libchromatix_s5k3h2yx_preview.so:system/lib/libchromatix_s5k3h2yx_preview.so \
@@ -295,12 +303,21 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libqmiservices.so:system/lib/libqmiservices.so \
     device/htc/ruby/prebuilt/lib/libqueue.so:system/lib/libqueue.so \
     device/htc/ruby/prebuilt/lib/libril-qc-qmi-1.so:system/lib/libril-qc-qmi-1.so \
-    device/htc/ruby/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so
+    device/htc/ruby/prebuilt/lib/libril-qcril-hook-oem.so:system/lib/libril-qcril-hook-oem.so \
+    device/htc/ruby/prebuilt/lib/libril.so:system/lib/libril.so
 
 # Misc
 PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/lib/libBeautyChat.so:system/lib/libBeautyChat.so \
+    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so \
+    device/htc/ruby/prebuilt/lib/libHTC_DIS.so:system/lib/libHTC_DIS.so \
+    device/htc/ruby/prebuilt/lib/libmm-abl-oem.so:system/lib/libmm-abl-oem.so \
+    device/htc/ruby/prebuilt/lib/libmm-abl.so:system/lib/libmm-abl.so \
     device/htc/ruby/prebuilt/lib/libmm-color-convertor.so:system/lib/libmm-color-convertor.so \
-    device/htc/ruby/prebuilt/lib/libdsm.so:system/lib/libdsm.so
+    device/htc/ruby/prebuilt/lib/libmmmpo.so:system/lib/libmmmpo.so \
+    device/htc/ruby/prebuilt/lib/libmmmpod.so:system/lib/libmmmpod.so \
+    device/htc/ruby/prebuilt/lib/libmmstillomx.so:system/lib/libmmstillomx.so \
+    device/htc/ruby/prebuilt/lib/libqcomomxsample_jb.so:system/lib/libqcomomxsample_jb.so
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
@@ -326,11 +343,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.dexopt-flags=m=v,o=y \
     dalvik.vm.jit.codecachesize=0 \
     dalvik.vm.lockprof.threshold=500 \
+    debug.composition.type=c2d \
     debug.egl.hw=1 \
     debug.egl.recordable.rgba8888=1 \
-    debug.enabletr=true \
     debug.mdpcomp.logs=0 \
-    debug.mdpcomp.maxlayer=0 \
+    debug.mdpcomp.maxlayer=3 \
     debug.sf.hw=1 \
     dev.pm.dyn_samplingrate=1 \
     htc.audio.alt.enable=0 \
@@ -342,7 +359,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.purgeable_assets=1 \
     persist.sys.usb.config=mtp,adb \
     persist.sys.use_16bpp_alpha=1 \
-    ro.bq.gpu_to_cpu_unsupported=1 \
     ro.com.google.locationfeatures=1 \
     ro.config.low_ram=true \
     ro.debuggable=1 \
@@ -350,7 +366,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=131072 \
     ro.setupwizard.enable_bypass=1 \
     ro.sf.lcd_density=240 \
-    ro.vold.umsdirtyratio=40 \
+    ro.vold.umsdirtyratio=20 \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=255
 

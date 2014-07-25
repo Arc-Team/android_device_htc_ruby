@@ -93,6 +93,13 @@ on fs
     # Mount all mmc partitions
     mount_all ./fstab.ruby
 
+    mkdir /data/tombstones 0771 system system
+    symlink /data/tombstones /tombstones
+    mkdir /tombstones/modem 0771 system system
+    mkdir /tombstones/lpass 0771 system system
+    mkdir /tombstones/wcnss 0771 system system
+    mkdir /tombstones/dsps 0771 system system
+
     symlink /system/vendor/lib /vendor/lib
 
     mkdir /vendor/etc 0771 system system
@@ -155,8 +162,14 @@ on boot
     chown system graphics /sys/class/graphics/fb1/hdmi_mode
     chmod 0660 /sys/class/graphics/fb1/power_state
 
+    write /sys/module/subsystem_restart/parameters/restart_level 3
+
     # audio
     mkdir /data/audio 2770 media audio
+
+    # camera
+    chown system camera /sys/camera_htccallback/htccallback
+    chmod 0660 /sys/camera_htccallback/htccallback
 
     # radio
     mkdir /data/qcks 0770 system system
@@ -224,9 +237,14 @@ on boot
     chmod 0664 /sys/devices/virtual/graphics/fb1/video_mode
     chmod 0664 /sys/devices/virtual/graphics/fb1/format_3d
 
+    chown system system /sys/devices/virtual/graphics/fb1/hpd
+
     # sync fs
     chown system /sys/devices/platform/rs300000a7.65536/force_sync
     chown system /sys/devices/platform/rs300000a7.65536/sync_sts
+
+    # fast charge
+    write /sys/kernel/fast_charge/force_fast_charge 2
 
 # Services start here
 
@@ -312,10 +330,6 @@ service kickstart /system/bin/qcks l
     class main
     oneshot
 
-service mpdecision /system/bin/mpdecision --no_sleep --avg_comp --single_core_while_panel_off
-    user root
-    disabled
-
 service netmgrd /system/bin/netmgrd
     class main
 
@@ -327,6 +341,11 @@ service p2p_supplicant /system/bin/wpa_supplicant -e/data/misc/wifi/entropy.bin 
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
+
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class main
+    user system
+    group system camera inet
 
 service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
     class main
@@ -402,7 +421,7 @@ on property:wlan.driver.status=ok
 
 # Powersave
 on property:sys.perf.profile=0
-    start mpdecision
+#   start thermald
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/block/mmcblk0/queue/scheduler noop
@@ -412,7 +431,7 @@ on property:sys.perf.profile=0
 
 # Balanced
 on property:sys.perf.profile=1
-    start mpdecision
+#   start thermald
     write /sys/block/mmcblk0/queue/scheduler noop
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
@@ -430,7 +449,7 @@ on property:sys.perf.profile=1
 
 # High performance
 on property:sys.perf.profile=2
-    stop mpdecision
+#   stop thermald
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/block/mmcblk0/queue/scheduler noop

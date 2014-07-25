@@ -54,8 +54,7 @@ chown root.system /sys/devices/system/cpu/cpu1/online
 chmod 664 /sys/devices/system/cpu/cpu1/online
 
 # Post-setup services
-#start mpdecision
-#start thermald
+start thermald
 
 # Wake-on-Volume
 echo 1 >> /sys/keyboard/vol_wakeup

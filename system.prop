@@ -6,6 +6,10 @@ rild.libargs=-d /dev/smd0
 ro.telephony.ril.v3=skipbrokendatacall
 ro.vendor.extension_library=/system/lib/libqc-opt.so
 
+# Audio
+#lpa.decode=true
+#lpa.use-stagefright=true
+
 # Tweaks
 mot.proximity.delay=25
 pm.sleep_mode=1
