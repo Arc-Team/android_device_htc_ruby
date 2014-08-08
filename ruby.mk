@@ -152,7 +152,6 @@ PRODUCT_COPY_FILES += \
 
 # Scripts
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/etc/init.ruby.post_boot.sh:system/etc/init.ruby.post_boot.sh \
     device/htc/ruby/prebuilt/etc/init.ruby.efs.sync.sh:system/etc/init.ruby.efs.sync.sh \
     device/htc/ruby/prebuilt/etc/init.d/01dalvik:system/etc/init.d/01dalvik \
     device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
