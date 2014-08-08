@@ -22,14 +22,12 @@ PRODUCT_PACKAGES += \
     lights.msm8660 \
     libgenlock \
     libmemalloc \
-    liboverlay \
     libqdutils \
     libtilerenderer
 
 # OMX
 PRODUCT_PACKAGES += \
-    libc2dcolorconvert \
-    libdivxdrmdecrypt \
+    libdashplayer \
     libmm-omxcore \
     libOmxCore \
     libOmxVdec \
@@ -333,7 +331,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.mdpcomp.logs=0 \
     debug.mdpcomp.maxlayer=0 \
     debug.sf.hw=1 \
-    dev.pm.dyn_samplingrate=1 \
     htc.audio.alt.enable=0 \
     htc.audio.hac.enable=0 \
     media.a1026.enableA1026=0 \
