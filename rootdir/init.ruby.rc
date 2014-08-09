@@ -290,10 +290,6 @@ service htcbatt /system/bin/htcbatt
     class main
     user root
 
-service initial_regdom /system/bin/initial_regdom.sh
-    oneshot
-    disabled
-
 service iprenew_bt-pan /system/bin/dhcpcd -n
     class main
     disabled
