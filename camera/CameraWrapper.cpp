@@ -105,6 +105,7 @@ static char *camera_fixup_getparams(int id, const char *settings)
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+    params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
     params.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE, "30");
     params.set(android::CameraParameters::KEY_AUTO_EXPOSURE_LOCK, "false");
@@ -157,6 +158,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
     /* Face detection */
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_HW, "0");
     params.set(android::CameraParameters::KEY_MAX_NUM_DETECTED_FACES_SW, "0");
+    params.set(android::CameraParameters::KEY_FACE_DETECTION, "off");
 
     params.set(android::CameraParameters::KEY_PREVIEW_FRAME_RATE, "30");
     params.set(android::CameraParameters::KEY_AUTO_EXPOSURE_LOCK, "false");
