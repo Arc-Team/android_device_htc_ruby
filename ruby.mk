@@ -314,7 +314,7 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/usr/idc/ruby-keypad.idc:system/usr/idc/ruby-keypad.idc
 
 # Device Default Properties
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.root_access=3 \
     ro.adb.secure=3 \
     ro.secure=0
