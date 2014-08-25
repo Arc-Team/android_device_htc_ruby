@@ -339,6 +339,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     htc.audio.hac.enable=0 \
     media.a1026.enableA1026=0 \
     media.a1026.nsForVoiceRec=0 \
+    media.stagefright.use-awesome=true \
     persist.service.adb.enable=1 \
     persist.service.debuggable=1 \
     persist.sys.purgeable_assets=1 \
