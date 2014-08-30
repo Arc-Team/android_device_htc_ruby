@@ -8,28 +8,27 @@ on early-init
     write /sys/block/mmcblk1/queue/scheduler noop
 
 on init
-    # Needs this for 4.3+
-    chmod 0777 /proc/cmdline
+    mkdir /devlog 0700 root root
 
-    # Storage
-    mkdir /mnt/media_rw 0770 media_rw media_rw
+    # External storage directories
     mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /mnt/media_rw/usbdisk 0700 media_rw media_rw
+
     mkdir /storage/sdcard0 0700 root root
     mkdir /storage/sdcard1 0700 root root
     mkdir /storage/usbdisk 0700 root root
-
-    export EXTERNAL_STORAGE  /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk0
 
     # For backwards compatibility
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard0 /mnt/sdcard
     symlink /storage/sdcard1 /external_sd
     symlink /storage/sdcard1 /mnt/external_sd
-    symlink /storage/usbdisk0 /usbdisk0
-    symlink /storage/usbdisk0 /mnt/usbdisk0
+    symlink /storage/usbdisk /usbdisk
+    symlink /storage/usbdisk /mnt/usbdisk
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbdisk
 
     # Dummy command to open() /dev/smd0 and not attempt to read any bytes from it
     #
@@ -111,7 +110,7 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on boot
-    # for systrace
+    # Mount debugfs for systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
     # Chown polling nodes as needed from UI running on system server
@@ -123,6 +122,9 @@ on boot
     chown system system /sys/devices/platform/msm_sdcc.2/polling
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
+
+    # Needs this for 4.3+
+    chmod 0777 /proc/cmdline
 
     # bluetooth power up/down interface
     chown bluetooth bluetooth /sys/class/rfkill/rfkill0/type
