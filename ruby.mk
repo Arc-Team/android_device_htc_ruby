@@ -144,17 +144,13 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/agps_rm:system/etc/agps_rm \
     device/htc/ruby/prebuilt/etc/gps.conf:system/etc/gps.conf \
     device/htc/ruby/prebuilt/etc/host:system/etc/host \
-    device/htc/ruby/prebuilt/etc/vpimg:system/etc/vpimg
+    device/htc/ruby/prebuilt/etc/vpimg:system/etc/vpimg \
+    device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
 
 # Media
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
     device/htc/ruby/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml
-
-# Scripts
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/etc/init.ruby.efs.sync.sh:system/etc/init.ruby.efs.sync.sh \
-    device/htc/ruby/prebuilt/etc/init.d/04host:system/etc/init.d/04host
 
 # WiFi
 PRODUCT_COPY_FILES += \
