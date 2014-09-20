@@ -121,7 +121,11 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRX_8888"
-TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
+ifeq ($(RECOVERY_VARIANT),twrp)
+    TARGET_RECOVERY_FSTAB := device/htc/ruby/recovery/twrp.fstab
+else
+    TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
+endif
 
 # CWM
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -138,14 +142,15 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 BOARD_HAS_NO_REAL_SDCARD := false
 HAVE_SELINUX := true
 DEVICE_RESOLUTION := 540x960
-TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
-TW_INTERNAL_STORAGE_PATH := "/emmc"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_INTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
+TW_EXTERNAL_STORAGE_PATH := "/external_sd"
 TW_INCLUDE_JB_CRYPTO := true
-TW_MAX_BRIGHTNESS := 255
 TW_NO_SCREEN_BLANK := true
-TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_INCLUDE_DUMLOCK := true
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # QCOM BSP
 #TARGET_USES_QCOM_BSP := true
@@ -154,7 +159,6 @@ TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
 # Boot-animation
 TARGET_BOOTANIMATION_PRELOAD := true
 TARGET_BOOTANIMATION_TEXTURE_CACHE := true
-TARGET_BOOTANIMATION_USE_RGB565 := true
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
