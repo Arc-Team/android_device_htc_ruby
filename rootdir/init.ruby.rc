@@ -40,7 +40,7 @@ on init
 
     setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
 
-    # MSMS8x60 Firmware
+    # Create firmware mount points
     rm /vendor
     mkdir /vendor 0771 system system
     mkdir /vendor/firmware 0771 system system
@@ -48,43 +48,42 @@ on init
     mkdir /vendor/firmware/misc 0771 system system
     mkdir /vendor/firmware/misc_mdm 0771 system system
 
-    wait /dev/block/mmcblk0p21
-    wait /dev/block/mmcblk0p17
-    wait /dev/block/mmcblk0p18
-    mount vfat /dev/block/mmcblk0p21 /vendor/firmware/adsp wait ro shortname=lower
-    mount vfat /dev/block/mmcblk0p17 /vendor/firmware/misc wait ro shortname=lower
-    mount vfat /dev/block/mmcblk0p18 /vendor/firmware/misc_mdm wait ro shortname=lower
+    wait /dev/block/platform/msm_sdcc.1/by-name/radio
+    wait /dev/block/platform/msm_sdcc.1/by-name/mdm9k
+    wait /dev/block/platform/msm_sdcc.1/by-name/adsp
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/radio /vendor/firmware/misc wait ro shortname=lower
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/mdm9k /vendor/firmware/misc_mdm wait ro shortname=lower
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/adsp /vendor/firmware/adsp wait ro shortname=lower
 
-    symlink /vendor/firmware/adsp/q6.b07 /vendor/firmware/q6.b07
-    symlink /vendor/firmware/adsp/q6.b06 /vendor/firmware/q6.b06
-    symlink /vendor/firmware/adsp/q6.b05 /vendor/firmware/q6.b05
-    symlink /vendor/firmware/adsp/q6.b04 /vendor/firmware/q6.b04
-    symlink /vendor/firmware/adsp/q6.b03 /vendor/firmware/q6.b03
-    symlink /vendor/firmware/adsp/q6.b02 /vendor/firmware/q6.b02
-    symlink /vendor/firmware/adsp/q6.b01 /vendor/firmware/q6.b01
     symlink /vendor/firmware/adsp/q6.b00 /vendor/firmware/q6.b00
+    symlink /vendor/firmware/adsp/q6.b01 /vendor/firmware/q6.b01
+    symlink /vendor/firmware/adsp/q6.b02 /vendor/firmware/q6.b02
+    symlink /vendor/firmware/adsp/q6.b03 /vendor/firmware/q6.b03
+    symlink /vendor/firmware/adsp/q6.b04 /vendor/firmware/q6.b04
+    symlink /vendor/firmware/adsp/q6.b05 /vendor/firmware/q6.b05
+    symlink /vendor/firmware/adsp/q6.b06 /vendor/firmware/q6.b06
+    symlink /vendor/firmware/adsp/q6.b07 /vendor/firmware/q6.b07
     symlink /vendor/firmware/adsp/q6.mdt /vendor/firmware/q6.mdt
-    symlink /vendor/firmware/misc/modem.b10 /vendor/firmware/modem.b10
-    symlink /vendor/firmware/misc/modem.b09 /vendor/firmware/modem.b09
-    symlink /vendor/firmware/misc/modem.b08 /vendor/firmware/modem.b08
-    symlink /vendor/firmware/misc/modem.b07 /vendor/firmware/modem.b07
-    symlink /vendor/firmware/misc/modem.b06 /vendor/firmware/modem.b06
-    symlink /vendor/firmware/misc/modem.b05 /vendor/firmware/modem.b05
-    symlink /vendor/firmware/misc/modem.b04 /vendor/firmware/modem.b04
-    symlink /vendor/firmware/misc/modem.b03 /vendor/firmware/modem.b03
-    symlink /vendor/firmware/misc/modem.b02 /vendor/firmware/modem.b02
-    symlink /vendor/firmware/misc/modem.b01 /vendor/firmware/modem.b01
     symlink /vendor/firmware/misc/modem.b00 /vendor/firmware/modem.b00
+    symlink /vendor/firmware/misc/modem.b01 /vendor/firmware/modem.b01
+    symlink /vendor/firmware/misc/modem.b02 /vendor/firmware/modem.b02
+    symlink /vendor/firmware/misc/modem.b03 /vendor/firmware/modem.b03
+    symlink /vendor/firmware/misc/modem.b04 /vendor/firmware/modem.b04
+    symlink /vendor/firmware/misc/modem.b05 /vendor/firmware/modem.b05
+    symlink /vendor/firmware/misc/modem.b06 /vendor/firmware/modem.b06
+    symlink /vendor/firmware/misc/modem.b07 /vendor/firmware/modem.b07
+    symlink /vendor/firmware/misc/modem.b08 /vendor/firmware/modem.b08
+    symlink /vendor/firmware/misc/modem.b09 /vendor/firmware/modem.b09
+    symlink /vendor/firmware/misc/modem.b10 /vendor/firmware/modem.b10
     symlink /vendor/firmware/misc/modem.mdt /vendor/firmware/modem.mdt
     symlink /vendor/firmware/misc_mdm/image/amss.mbn /vendor/firmware/amss.mbn
+    symlink /vendor/firmware/misc_mdm/image/dbl.mbn /vendor/firmware/dbl.mbn
     symlink /vendor/firmware/misc_mdm/image/dsp1.mbn /vendor/firmware/dsp1.mbn
     symlink /vendor/firmware/misc_mdm/image/dsp2.mbn /vendor/firmware/dsp2.mbn
-    symlink /vendor/firmware/misc_mdm/image/dbl.mbn /vendor/firmware/dbl.mbn
-    symlink /vendor/firmware/misc_mdm/image/osbl.mbn /vendor/firmware/osbl.mbn
     symlink /vendor/firmware/misc_mdm/image/efs1.mbn /vendor/firmware/efs1.mbn
     symlink /vendor/firmware/misc_mdm/image/efs2.mbn /vendor/firmware/efs2.mbn
-    symlink /vendor/firmware/misc_mdm/image/amss.mbn /vendor/firmware/amss.mbn
     symlink /vendor/firmware/misc_mdm/image/htcssmem.mbn /vendor/firmware/htcssmem.mbn
+    symlink /vendor/firmware/misc_mdm/image/osbl.mbn /vendor/firmware/osbl.mbn
 
     # Force loading of modem and Q6 images
     write /dev/smd_pkt_loopback 1

@@ -1,9 +1,20 @@
-/boot           emmc    /dev/block/mmcblk0p22
-/recovery       emmc    /dev/block/mmcblk0p23
-/misc           emmc    /dev/block/mmcblk0p24
-/system         ext4    /dev/block/mmcblk0p29
-/cache          ext4    /dev/block/mmcblk0p30
-/data           ext4    /dev/block/mmcblk0p31
-/devlog         ext4    /dev/block/mmcblk0p32
-/sdcard         vfat    /dev/block/mmcblk0p36
-/external_sd    vfat    /dev/block/mmcblk1p1    /dev/block/mmcblk1
+# System
+#vendor/firmware/misc        vfat    /dev/block/platform/msm_sdcc.1/by-name/radio
+#vendor/firmware/misc_mdm    vfat    /dev/block/platform/msm_sdcc.1/by-name/mdm9k
+#vendor/firmware/adsp        vfat    /dev/block/platform/msm_sdcc.1/by-name/adsp
+/boot                        emmc    /dev/block/platform/msm_sdcc.1/by-name/boot
+/recovery                    emmc    /dev/block/platform/msm_sdcc.1/by-name/recovery
+/misc                        emmc    /dev/block/platform/msm_sdcc.1/by-name/misc
+/system                      ext4    /dev/block/platform/msm_sdcc.1/by-name/system
+/cache                       ext4    /dev/block/platform/msm_sdcc.1/by-name/cache
+/data                        ext4    /dev/block/platform/msm_sdcc.1/by-name/userdata
+/devlog                      ext4    /dev/block/platform/msm_sdcc.1/by-name/devlog
+
+# Internal
+/sdcard                      vfat    /dev/block/mmcblk0p36                          flags=display="Internal";settingsstorage
+
+# SDCard
+/external_sd                 vfat    /dev/block/mmcblk1p1     /dev/block/mmcblk1    flags=display="SDCard";storage;wipeingui;removable
+
+# USB
+/usb-otg                     vfat    /dev/block/sda1          /dev/block/sda        flags=display="USB";storage;wipeingui;removable
