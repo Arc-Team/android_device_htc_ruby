@@ -226,21 +226,6 @@ PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/hw/nfc.ruby.so:/system/lib/hw/nfc.ruby.so \
     device/htc/ruby/prebuilt/lib/hw/sensors.ruby.so:/system/lib/hw/sensors.ruby.so
 
-# Adreno
-PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/lib/egl/eglsubAndroid.so:/system/lib/egl/eglsubAndroid.so \
-    device/htc/ruby/prebuilt/lib/egl/libEGL_adreno200.so:/system/lib/egl/libEGL_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libGLESv1_CM_adreno200.so:/system/lib/egl/libGLESv1_CM_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libGLESv2_adreno200.so:/system/lib/egl/libGLESv2_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libplayback_adreno200.so:/system/lib/egl/libplayback_adreno200.so \
-    device/htc/ruby/prebuilt/lib/egl/libq3dtools_adreno200.so:/system/lib/egl/libq3dtools_adreno200.so \
-    device/htc/ruby/prebuilt/lib/libC2D2.so:/system/lib/libC2D2.so \
-    device/htc/ruby/prebuilt/lib/libOpenCL.so:/system/lib/libOpenCL.so \
-    device/htc/ruby/prebuilt/lib/libOpenVG.so:/system/lib/libOpenVG.so \
-    device/htc/ruby/prebuilt/lib/libc2d2_z180.so:/system/lib/libc2d2_z180.so \
-    device/htc/ruby/prebuilt/lib/libgsl.so:/system/lib/libgsl.so \
-    device/htc/ruby/prebuilt/lib/libsc-a2xx.so:/system/lib/libsc-a2xx.so
-
 # Audio
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libacdbloader.so:/system/lib/libacdbloader.so \
@@ -306,6 +291,23 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/htc/ruby/prebuilt/lib/libmm-color-convertor.so:/system/lib/libmm-color-convertor.so \
     device/htc/ruby/prebuilt/lib/libdsm.so:/system/lib/libdsm.so
+
+# Adreno
+PRODUCT_COPY_FILES += \
+    device/htc/ruby/prebuilt/vendor/lib/egl/eglsubAndroid.so:/system/vendor/lib/egl/eglsubAndroid.so \
+    device/htc/ruby/prebuilt/vendor/lib/egl/libEGL_adreno.so:/system/vendor/lib/egl/libEGL_adreno.so \
+    device/htc/ruby/prebuilt/vendor/lib/egl/libGLESv1_CM_adreno.so:/system/vendor/lib/egl/libGLESv1_CM_adreno.so \
+    device/htc/ruby/prebuilt/vendor/lib/egl/libGLESv2S3D_adreno.so:/system/vendor/lib/egl/libGLESv2S3D_adreno.so \
+    device/htc/ruby/prebuilt/vendor/lib/egl/libGLESv2_adreno.so:/system/vendor/lib/egl/libGLESv2_adreno.so \
+    device/htc/ruby/prebuilt/vendor/lib/egl/libq3dtools_adreno.so:/system/vendor/lib/egl/libq3dtools_adreno.so \
+    device/htc/ruby/prebuilt/vendor/lib/libC2D2.so:/system/vendor/lib/libC2D2.so \
+    device/htc/ruby/prebuilt/vendor/lib/libCB.so:/system/vendor/lib/libCB.so \
+    device/htc/ruby/prebuilt/vendor/lib/libOpenCL.so:/system/lib/libOpenCL.so \
+    device/htc/ruby/prebuilt/vendor/lib/libOpenVG.so:/system/lib/libOpenVG.so \
+    device/htc/ruby/prebuilt/vendor/lib/libadreno_utils.so:/system/vendor/lib/libadreno_utils.so \
+    device/htc/ruby/prebuilt/vendor/lib/libc2d2_z180.so:/system/vendor/lib/libc2d2_z180.so \
+    device/htc/ruby/prebuilt/vendor/lib/libgsl.so:/system/vendor/lib/libgsl.so \
+    device/htc/ruby/prebuilt/vendor/lib/libsc-a2xx.so:/system/lib/libsc-a2xx.so
 
 # Keylayouts and Keychars
 PRODUCT_COPY_FILES += \
