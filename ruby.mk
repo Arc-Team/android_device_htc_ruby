@@ -80,7 +80,9 @@ PRODUCT_PACKAGES += \
 # Wi-Fi
 PRODUCT_PACKAGES += \
     dhcpcd.conf \
+    hostapd \
     hostapd.conf \
+    wpa_supplicant \
     wpa_supplicant.conf \
     tiwlan.ini \
     TQS_D_1.7.ini \
