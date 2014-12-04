@@ -9,7 +9,7 @@ key 217   SEARCH
 key 107   ENDCALL           WAKE_DROPPED
 
 # CAMCORDER
-key 248   CAMCORDER	    WAKE
+key 248   CAMCORDER	        WAKE
 
 # CAMERA
 key 211   FOCUS
