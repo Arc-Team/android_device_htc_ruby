@@ -50,7 +50,3 @@ ro.device.gpu=Adreno 220
 ro.device.rear_cam=8 MP (3264x2448)
 ro.device.front_cam=2 MP (1600x1200)
 ro.device.screen_res=4.3" 960x540 pixels (~256 ppi)
-
-# Recovery
-ro.cwm.forbid_format=/vendor/firmware/misc,/vendor/firmware/misc_mdm,/vendor/firmware/adsp,/devlog
-ro.cwm.forbid_mount=/vendor/firmware/misc,/vendor/firmware/misc_mdm,/vendor/firmware/adsp,/devlog
