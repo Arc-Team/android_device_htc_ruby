@@ -185,35 +185,6 @@ BOARD_HAVE_NFC := true
 # Libril
 BOARD_PROVIDES_LIBRIL := true
 
-# SELinux
-BOARD_SEPOLICY_DIRS += device/htc/ruby/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-    app.te \
-    bluetooth.te \
-    device.te \
-    domain.te \
-    drmserver.te \
-    file.te \
-    file_contexts \
-    files \
-    hci_init.te \
-    healthd.te \
-    init.te \
-    init_shell.te \
-    keystore.te \
-    kickstart.te \
-    mediaserver.te \
-    netd.te \
-    rild.te \
-    surfaceflinger.te \
-    system.te \
-    ueventd.te \
-    untrusted_app.te \
-    vold.te \
-    wpa.te \
-    wpa_socket.te
-
 # Hardware tunables
 BOARD_HARDWARE_CLASS := device/htc/ruby/cmhw
 
