@@ -1,7 +1,7 @@
 # System
-#dev/block/platform/msm_sdcc.1/by-name/radio       /vendor/firmware/misc        vfat    ro,shortname=lower      wait
-#dev/block/platform/msm_sdcc.1/by-name/mdm9k       /vendor/firmware/misc_mdm    vfat    ro,shortname=lower      wait
-#dev/block/platform/msm_sdcc.1/by-name/adsp        /vendor/firmware/adsp        vfat    ro,shortname=lower      wait
+/dev/block/platform/msm_sdcc.1/by-name/radio       /vendor/firmware/misc        vfat    ro,shortname=lower      wait
+/dev/block/platform/msm_sdcc.1/by-name/mdm9k       /vendor/firmware/misc_mdm    vfat    ro,shortname=lower      wait
+/dev/block/platform/msm_sdcc.1/by-name/adsp        /vendor/firmware/adsp        vfat    ro,shortname=lower      wait
 /dev/block/platform/msm_sdcc.1/by-name/boot        /boot                        emmc    defaults                defaults
 /dev/block/platform/msm_sdcc.1/by-name/recovery    /recovery                    emmc    defaults                defaults
 /dev/block/platform/msm_sdcc.1/by-name/misc        /misc                        emmc    defaults                defaults
