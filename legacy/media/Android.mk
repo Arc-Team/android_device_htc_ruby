@@ -1,4 +1,5 @@
+ifeq ($(call my-dir),$(call project-path-for,qcom-media))
 
-ifeq ($(TARGET_QCOM_MEDIA_VARIANT),ruby)
-    include $(call all-subdir-makefiles)
+include $(call all-subdir-makefiles)
+
 endif
