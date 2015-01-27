@@ -3,9 +3,7 @@ import init.ruby.usb.rc
 on early-init
     mkdir /mnt/usbdisk 0755 system system
     write /sys/block/mmcblk0/bdi/read_ahead_kb 512
-    write /sys/block/mmcblk0/queue/scheduler noop
     write /sys/block/mmcblk1/bdi/read_ahead_kb 512
-    write /sys/block/mmcblk1/queue/scheduler noop
 
 on init
     mkdir /devlog 0700 root root
@@ -397,8 +395,6 @@ on property:sys.boot_completed=1
     write /sys/module/cpu_boost/parameters/sync_threshold 1242000
     write /sys/module/cpu_boost/parameters/input_boost_freq 1134000
     write /sys/module/cpu_boost/parameters/input_boost_ms 10
-    write /sys/block/mmcblk0/queue/scheduler noop
-    write /sys/block/mmcblk1/queue/scheduler noop
     write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
@@ -430,6 +426,7 @@ on property:sys.boot_completed=1
 # Powersave
 on property:sys.perf.profile=0
     stop mpdecision
+    write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor conservative
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor conservative
@@ -450,19 +447,10 @@ on property:sys.perf.profile=0
 # Balanced
 on property:sys.perf.profile=1
     stop mpdecision
+    write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor ondemand
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 85000
-    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential 10
-    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_multi_core 70
-    write /sys/devices/system/cpu/cpufreq/ondemand/down_differential_multi_core 3
-    write /sys/devices/system/cpu/cpufreq/ondemand/optimal_freq 918000
-    write /sys/devices/system/cpu/cpufreq/ondemand/sync_freq 1026000
-    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load 80
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor intelliactive
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor intelliactive
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk 200000000
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/gpuclk 160000000
@@ -475,6 +463,7 @@ on property:sys.perf.profile=1
 # High performance
 on property:sys.perf.profile=2
     stop mpdecision
+    write /sys/devices/system/cpu/cpu0/online 1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor performance
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
