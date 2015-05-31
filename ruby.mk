@@ -347,6 +347,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0 \
     wifi.supplicant_scan_interval=255
 
+# Low-ram
+PRODUCT_PROPERTY_OVERRIDES += \
+    config.disable_atlas=true \
+    persist.sys.force_highendgfx=true \
+    ro.config.max_starting_bg=8 \
+    ro.sys.fw.bg_apps_limit=16
+
 # Device Tags
 PRODUCT_TAGS += dalvik.gc.type-precise
 

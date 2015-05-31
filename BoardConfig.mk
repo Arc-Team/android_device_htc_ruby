@@ -158,11 +158,14 @@ TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
 
 # Boot-animation
 TARGET_BOOTANIMATION_PRELOAD := true
-TARGET_BOOTANIMATION_TEXTURE_CACHE := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := false
 
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 TARGET_PROVIDES_LIBLIGHTS := true
+
+# Mallocs
+MALLOC_IMPL := dlmalloc
 
 # Power
 TARGET_POWERHAL_VARIANT := ruby
