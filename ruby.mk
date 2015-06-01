@@ -252,7 +252,7 @@ PRODUCT_COPY_FILES += \
 
 # CamTmpFix
 PRODUCT_COPY_FILES += \
-    device/htc/ruby/prebuilt/app/Camera2.apk:/system/app/Camera2.apk \
+    device/htc/ruby/prebuilt/app/OpenCamera.apk:/system/app/OpenCamera.apk \
     device/htc/ruby/prebuilt/lib/libcamera_client.so:/system/lib/libcamera_client.so \
     device/htc/ruby/prebuilt/lib/libcamera_metadata.so:/system/lib/libcamera_metadata.so \
     device/htc/ruby/prebuilt/lib/libcameraservice.so:/system/lib/libcameraservice.so
