@@ -2,8 +2,8 @@ import init.ruby.usb.rc
 
 on early-init
     mkdir /mnt/usbdisk 0755 system system
-    write /sys/block/mmcblk0/bdi/read_ahead_kb 512
-    write /sys/block/mmcblk1/bdi/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
 
 on init
     mkdir /devlog 0700 root root
@@ -399,7 +399,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpu1/online 1
     write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 192000
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 192000
-    white /sys/devices/virtual/misc/fsynccontrol/fsync_enabled 0
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/down_differential
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
@@ -452,8 +451,10 @@ on property:sys.perf.profile=0
     write /sys/devices/system/cpu/cpufreq/conservative/freq_step 10
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk 160000000
+    write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/pwrscale/trustzone/governor ondemand
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk 160000000
+    write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/pwrscale/trustzone/governor ondemand
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk 228571000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 228571000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
@@ -468,14 +469,16 @@ on property:sys.perf.profile=1
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor intelliactive
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk 200000000
+    write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/pwrscale/trustzone/governor ondemand
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk 200000000
+    write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/pwrscale/trustzone/governor ondemand
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk 228571000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 300000000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor ondemand
     #start mpdecision
 
-# High performance
+# High
 on property:sys.perf.profile=2
     stop mpdecision
     write /sys/devices/system/cpu/cpu0/online 1
@@ -484,8 +487,10 @@ on property:sys.perf.profile=2
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor performance
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/max_gpuclk 266667000
+    write /sys/devices/platform/kgsl-2d0.0/kgsl/kgsl-2d0/pwrscale/trustzone/governor performance
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/gpuclk 160000000
     write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/max_gpuclk 266667000
+    write /sys/devices/platform/kgsl-2d1.1/kgsl/kgsl-2d1/pwrscale/trustzone/governor performance
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk 228571000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk 320000000
     write /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/trustzone/governor performance

@@ -317,7 +317,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 # Device Properties
 PRODUCT_PROPERTY_OVERRIDES += \
     com.qc.hardware=true \
-    dalvik.vm.dexopt-flags=m=v,o=y \
+    dalvik.vm.dexopt-flags=m=y \
     dalvik.vm.jit.codecachesize=0 \
     dalvik.vm.lockprof.threshold=500 \
     debug.egl.hw=1 \
