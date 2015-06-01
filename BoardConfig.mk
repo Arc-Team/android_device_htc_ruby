@@ -121,11 +121,7 @@ BOARD_VOLD_MAX_PARTITIONS := 36
 
 # Recovery
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRX_8888"
-ifeq ($(RECOVERY_VARIANT),twrp)
-    TARGET_RECOVERY_FSTAB := device/htc/ruby/recovery/twrp.fstab
-else
-    TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
-endif
+TARGET_RECOVERY_FSTAB := device/htc/ruby/rootdir/fstab.ruby
 
 # CWM
 BOARD_HAS_NO_SELECT_BUTTON := true
@@ -140,17 +136,12 @@ TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/class/leds/lcd-backlight/brightness
 
 # TWRP
 BOARD_HAS_NO_REAL_SDCARD := false
-HAVE_SELINUX := true
-DEVICE_RESOLUTION := 540x960
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_INTERNAL_STORAGE_MOUNT_POINT := "sdcard"
-TW_INTERNAL_STORAGE_PATH := "/sdcard"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_INCLUDE_JB_CRYPTO := true
-TW_NO_SCREEN_BLANK := true
-TW_INCLUDE_DUMLOCK := true
 TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_NO_SCREEN_BLANK := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_DUMLOCK := true
+TW_THEME := portrait_hdpi
 
 # QCOM BSP
 #TARGET_USES_QCOM_BSP := true
