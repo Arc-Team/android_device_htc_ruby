@@ -97,9 +97,6 @@ on post-fs-data
     setprop vold.post_fs_data_done 1
 
 on boot
-    # Create symlink to qcn wpa_supplicant folder
-    symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
-
     # Mount debugfs for systrace
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
