@@ -133,28 +133,8 @@ static char *camera_fixup_getparams(int id, const char *settings)
     /* Disable denoise */
     params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
 
-    if (isVideo && id == 1) {
-        /* Front camera only supports infinity */
-        params.set(android::CameraParameters::KEY_FOCUS_MODE, "infinity");
-    }
-
     params.set("preview-frame-rate-mode", "frame-rate-fixed");
     params.set(android::CameraParameters::KEY_PREVIEW_FPS_RANGE, "10000,60000");
-
-    /* Fix rotation missmatch */
-    switch (rotation) {
-        case 90:
-            params.set(android::CameraParameters::KEY_ROTATION, "0");
-            break;
-        case 180:
-            params.set(android::CameraParameters::KEY_ROTATION, "90");
-            break;
-        case 270:
-            params.set(android::CameraParameters::KEY_ROTATION, "180");
-            break;
-        default:
-            break;
-    }
 
     // Some QCOM related framework changes expect max-saturation, max-contrast
     // and max-sharpness or the Camera app will crash.
@@ -219,11 +199,6 @@ static char *camera_fixup_setparams(int id, const char *settings)
 
     /* Disable denoise */
     params.set(android::CameraParameters::KEY_SUPPORTED_DENOISE, "off");
-
-    if (isVideo && id == 1) {
-        /* Front camera only supports infinity */
-        params.set(android::CameraParameters::KEY_FOCUS_MODE, "infinity");
-    }
 
     // Enable video mode for our HTC camera
     //   old overlay: needsHtcCamMode
