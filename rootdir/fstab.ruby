@@ -10,9 +10,9 @@
 /dev/block/platform/msm_sdcc.1/by-name/recovery    /recovery                    emmc    defaults                                                                            defaults
 /dev/block/platform/msm_sdcc.1/by-name/misc        /misc                        emmc    defaults                                                                            defaults
 /dev/block/platform/msm_sdcc.1/by-name/system      /system                      ext4    ro,barrier=0,errors=panic                                                           wait
-/dev/block/platform/msm_sdcc.1/by-name/cache       /cache                       ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait,check
-/dev/block/platform/msm_sdcc.1/by-name/userdata    /data                        ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait,check
-/dev/block/platform/msm_sdcc.1/by-name/devlog      /devlog                      ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
+/dev/block/platform/msm_sdcc.1/by-name/devlog      /devlog                      ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait
+/dev/block/platform/msm_sdcc.1/by-name/cache       /cache                       ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait
+/dev/block/platform/msm_sdcc.1/by-name/userdata    /data                        ext4    nosuid,nodev,noatime,noauto_da_alloc,journal_async_commit,barrier=0,errors=panic    wait,encryptable=/dev/block/platform/msm_sdcc.1/by-name/extra
 
 # Internal
 /devices/platform/msm_sdcc.1/mmc_host/mmc0         auto                         auto    defaults                                                                            voldmanaged=sdcard0:36,nonremovable,noemulatedsd
